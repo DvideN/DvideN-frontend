@@ -1,2 +1,2 @@
-# evm-dapp-template
-👻 Nextjs + typescript + tailwind css + daisyui + eslint + prettier + husky
+# DvideN
+💎 NFT Installment Payment Service

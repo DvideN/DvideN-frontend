@@ -36,7 +36,7 @@ function Header() {
 export default Header;
 
 const StWrap = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 72px;
 
   display: flex;

@@ -1,9 +1,10 @@
 import { css } from '@emotion/react';
 import reset from 'emotion-reset';
+
 export const global = css`
   ${reset}
   html,
-body {
+  body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -30,5 +31,12 @@ body {
 
   * {
     box-sizing: border-box;
+  }
+
+  button {
+    outline: 0;
+    border: 0;
+    background: none;
+    padding: 0;
   }
 `;

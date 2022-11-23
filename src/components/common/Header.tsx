@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import logoImg from '@src/assets/ddd 3.png';
+import logoImg from '@public/assets/ddd3.png';
+import theme from '@src/styles/theme';
 import { connectMetamask } from '@src/utils/connectWallet';
 import React from 'react';
 
@@ -16,9 +17,11 @@ function Header() {
     }
   };
 
+  console.log('logoImg', logoImg);
+
   return (
     <StWrap>
-      <StLogoBtn bgImg={logoImg.src} />
+      <StLogoBtn src={logoImg.src} />
       <StMetamaskBtn onClick={handleWalletClick} type="button" id="metamask">
         {walletAddress}
       </StMetamaskBtn>
@@ -40,14 +43,14 @@ const StWrap = styled.div`
 `;
 
 interface StLogoBtnProps {
-  bgImg: string;
+  src: string;
 }
 
 const StLogoBtn = styled.button<StLogoBtnProps>`
   width: 44px;
   height: 55px;
 
-  background: url(${(props) => props.bgImg}) center no-repeat;
+  background: url(${(props) => props.src}) center no-repeat;
 `;
 
 const StMetamaskBtn = styled.button`
@@ -56,7 +59,9 @@ const StMetamaskBtn = styled.button`
   width: 92px;
   height: 34px;
 
-  background: #e8e9ea;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: ${theme.colors.gray200};
   border-radius: 100px;
+
+  color: ${theme.colors.gray800};
+  font-size: 14px;
 `;

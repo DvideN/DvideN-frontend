@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
-import logoImg from '@public/assets/ddd3.png';
+import logoImg from '@src/assets/logo.png';
 import theme from '@src/styles/theme';
 import { connectMetamask } from '@src/utils/connectWallet';
 import React from 'react';
+
+interface StLogoBtnProps {
+  src: string;
+}
 
 function Header() {
   const walletAddress = '0xd...024';
@@ -41,10 +45,6 @@ const StWrap = styled.div`
 
   padding: 0 20px;
 `;
-
-interface StLogoBtnProps {
-  src: string;
-}
 
 const StLogoBtn = styled.button<StLogoBtnProps>`
   width: 44px;

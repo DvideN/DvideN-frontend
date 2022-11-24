@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import snoopImage from '@src/assets/snoop.png';
 import Header from '@src/components/common/Header';
 import RoundButton from '@src/components/common/RoundButton';
+import DetailInstallment from '@src/components/Detail/DetailInstallment';
 import DetailName from '@src/components/Detail/DetailName';
 import DetailPrice from '@src/components/Detail/DetailPrice';
 import theme from '@src/styles/theme';
@@ -23,16 +24,12 @@ function Detail() {
           <Image src={snoopImage} layout="fill" objectFit="cover" />
         </div>
         <DetailName name="NoiaDuck #494" account="0x123...456" />
-        <StInfoWrap>
-          <StPriceWrap>
-            <DetailPrice title="Total Price" price="0.1021 ETH" />
-            <DetailPrice title="Installment Price" price="0.0121 ETH" duration="1 month" />
-          </StPriceWrap>
-          <StInstallmentWrap></StInstallmentWrap>
-        </StInfoWrap>
-      </StRoot>
-      <StRoot>
-        <RoundButton width="82.7%" height="65px" disabled={true}>
+        <StPriceWrap>
+          <DetailPrice title="Total Price" price="0.1021 ETH" />
+          <DetailPrice title="Installment Price" price="0.0121 ETH" duration="1 month" />
+        </StPriceWrap>
+        <DetailInstallment month="12 months" collateral="0.0011 ETH" percent={30} />
+        <RoundButton width="82.7%" height="65px" styleType="rainbow">
           Purchase
         </RoundButton>
       </StRoot>
@@ -49,14 +46,7 @@ const StRoot = styled.div`
   row-gap: 28px;
 
   margin-top: 12px;
-  width: 100%;
-`;
-
-const StInfoWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  padding-bottom: 40px;
   width: 100%;
 `;
 
@@ -66,5 +56,3 @@ const StPriceWrap = styled.div`
 
   width: 88.2%;
 `;
-
-const StInstallmentWrap = styled.div``;

@@ -65,7 +65,7 @@ const StButton = styled.button<StButtonProps>`
   height: ${(props) => props.height};
 
   border-radius: 50px;
-  border: 1px solid white;
+  //border: 4px solid; //TODO: - 무지개 테두리 구현
 
   background: ${(props) => props.bgColor};
   color: ${(props) => props.fontColor};

@@ -10,3 +10,9 @@ export const PURCHASE_MODAL = {
     description: 'It will takes 1-2 min.',
   },
 };
+
+export const PURCHASE_MODAL_SUBTITLE = {
+  TRANSFER: 'Transfer',
+  COLLATERAL: 'Collateral',
+  WRAPPING: 'Wrapping',
+};

@@ -45,21 +45,25 @@ const StRowWrap = styled.div`
 `;
 
 const StTitleLabel = styled.p`
+  font-weight: 700;
   font-size: 13px;
   color: ${theme.colors.gray500};
 `;
 
 const StContentLabel = styled.p`
+  font-weight: 700;
   font-size: 16px;
   color: ${theme.colors.gray500};
 `;
 
 const StCollateralWrap = styled.div`
   display: flex;
-  align-items: end;
+  align-items: center;
+  column-gap: 3px;
 `;
 
 const StPercentLabel = styled.p`
+  font-weight: 400;
   font-size: 12px;
   color: ${theme.colors.gray400};
 `;

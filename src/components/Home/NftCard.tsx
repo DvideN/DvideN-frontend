@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import theme from '@src/styles/theme';
-import { router } from 'next/client';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 interface CardProps {
@@ -15,6 +15,8 @@ interface StyleProps {
 }
 
 function NftCard({ id, imgSrc, name, price }: CardProps) {
+  const router = useRouter();
+
   const handleCardClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
     router.push(`/detail/${id}`);

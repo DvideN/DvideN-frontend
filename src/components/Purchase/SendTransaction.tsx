@@ -7,6 +7,7 @@ import theme from '@src/styles/theme';
 import { TransactionType } from '@src/types/purchase';
 import React, { useState } from 'react';
 
+import Loading from '../common/Loading';
 import RoundButton from '../common/RoundButton';
 
 interface stageProps {
@@ -19,7 +20,17 @@ function SendTransaction() {
     <ErrorBoundary
       renderFallback={({ error, reset }) => <CommonError error={error} reset={reset} />}
     >
-      <SSRSafeSuspense fallback={<div>로딩 뷰</div>}>
+      <SSRSafeSuspense
+        fallback={
+          <>
+            <StTitle className="font-bold text-lg">{PURCHASE_MODAL['default'].title}</StTitle>
+            <StDescription className="py-4 mb-[40px]">
+              {PURCHASE_MODAL['default'].description}
+            </StDescription>
+            <Loading isIcon={true} />
+          </>
+        }
+      >
         <Resolved />
       </SSRSafeSuspense>
     </ErrorBoundary>

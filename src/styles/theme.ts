@@ -18,6 +18,9 @@ const theme: Theme = {
     red700: '#BC0A20',
 
     white: '#FFFFFF',
+
+    rainbow:
+      'linear-gradient(#1a1e1e, #1a1e1e), conic-gradient(from var(--angle), #ff0000 16%, #fff500 32%, #24ff00 60%, #0029ff 75%, #6100ff 83%, #ff0000 100%)',
   },
 };
 

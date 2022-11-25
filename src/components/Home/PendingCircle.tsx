@@ -25,9 +25,9 @@ function PendingCircle({ totalMonth, remainingMonth, src }: Props) {
         <StCircleWrap>
           <CircularProgressbar
             value={percentage}
-            strokeWidth={4}
+            strokeWidth={5}
             styles={buildStyles({
-              pathColor: '#18CF6C',
+              pathColor: 'rgba(24, 207, 108, 0.4)',
               trailColor: '#E8E9EA',
 
               pathTransitionDuration: 0.6,
@@ -66,8 +66,8 @@ const StProgressWrap = styled.div<StyleProps>`
 `;
 
 const StCircleWrap = styled.div`
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
 `;
 
 const StRemainLabel = styled.p`

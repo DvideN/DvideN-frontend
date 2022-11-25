@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Header from '@src/components/common/Header';
+import SlideButton from '@src/components/common/SlideButton';
 import PurchaseModal from '@src/components/Purchase/PurchaseModal';
 import React from 'react';
 
@@ -12,6 +13,7 @@ function Purchase() {
       </label>
       <input type="checkbox" id="my-modal-6" className="modal-toggle bg-black" />
       <PurchaseModal />
+      <SlideButton />
     </>
   );
 }

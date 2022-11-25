@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { useAccountModal, useConnectModal } from '@rainbow-me/rainbowkit';
 import theme from '@src/styles/theme';
+import { useEffect } from 'react';
 import { useAccount } from 'wagmi';
 
 function ConnectWallet() {

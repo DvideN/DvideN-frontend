@@ -17,9 +17,6 @@ interface CardProps {
 }
 
 function PendingInstallmentCard(props: CardProps) {
-  console.log('IcCollateral', IcCollateral);
-  console.log('IcTransaction', IcTransaction);
-
   return (
     <StWrap>
       <StLeftWrap>

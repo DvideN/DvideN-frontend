@@ -23,6 +23,9 @@ declare module '@emotion/react' {
 
       // white
       white: string;
+
+      // rainbow
+      rainbow: string;
     };
   }
 }

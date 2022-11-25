@@ -35,8 +35,9 @@ function RoundButton({ children, handleClick, styleType = 'plain', ...props }: B
 const GetBackgroundColor = (btnType: 'plain' | 'rainbow' | 'disabled' | 'success'): string => {
   switch (btnType) {
     case 'plain':
-    case 'rainbow':
       return theme.colors.gray900;
+    case 'rainbow':
+      return theme.colors.rainbow;
     case 'disabled':
       return theme.colors.gray300;
     case 'success':
@@ -64,12 +65,29 @@ const StButton = styled.button<StButtonProps>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
 
-  border-radius: 50px;
-  //border: 4px solid; //TODO: - 무지개 테두리 구현
-
   background: ${(props) => props.bgColor};
   color: ${(props) => props.fontColor};
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: 2s rotate linear infinite;
 
   font-weight: 700;
   font-size: 18px;
+
+  border: 4px solid transparent;
+  border-radius: 50px;
+
+  --angle: 0deg;
+
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
 `;

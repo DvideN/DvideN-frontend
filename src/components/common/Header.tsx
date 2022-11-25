@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import logoImg from '@src/assets/logo.png';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import ConnectWallet from './ConnectWallet';
@@ -9,9 +10,14 @@ interface StLogoBtnProps {
 }
 
 function Header() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/');
+  };
+
   return (
     <StWrap>
-      <StLogoBtn src={logoImg.src} />
+      <StLogoBtn src={logoImg.src} onClick={handleClick} />
       <ConnectWallet />
     </StWrap>
   );

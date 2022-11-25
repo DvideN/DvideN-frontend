@@ -39,7 +39,7 @@ function Detail() {
 
 export default Detail;
 
-const StRoot = styled.div`
+const StRoot = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;

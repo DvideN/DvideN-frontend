@@ -85,8 +85,6 @@ const StButtonWrap = styled.div`
   row-gap: 8px;
 `;
 
-const StNameWrap = styled.div``;
-
 const StInfoLabel = styled.p`
   font-weight: 700;
   font-size: 13px;

@@ -56,6 +56,8 @@ const StButton = styled.button`
   font-weight: 700;
   font-size: 13px;
 
+  opacity: 0.9;
+
   display: flex;
   align-items: center;
   column-gap: 8px;

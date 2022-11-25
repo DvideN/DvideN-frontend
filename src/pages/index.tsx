@@ -18,8 +18,8 @@ const Feed: NextPage = () => {
       <Header />
       <HomeTab />
       <StCardWrap>
-        <NftCard imgSrc={snoopImg.src} name="NoiaDuck #494" price="0.1021 ETH" />
-        <NftCard imgSrc={snoopImg.src} name="NoiaDuck #494" price="0.1021 ETH" />
+        <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price="0.1021 ETH" />
+        <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price="0.1021 ETH" />
         <StComingSoonLabel>Coming soon :)</StComingSoonLabel>
       </StCardWrap>
     </>

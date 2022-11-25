@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import theme from '@src/styles/theme';
+import { router } from 'next/client';
 import React from 'react';
 
 interface CardProps {
+  id: number;
   imgSrc: string;
   name: string;
   price: string;
@@ -12,9 +14,14 @@ interface StyleProps {
   src: string;
 }
 
-function NftCard({ imgSrc, name, price }: CardProps) {
+function NftCard({ id, imgSrc, name, price }: CardProps) {
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.preventDefault();
+    router.push(`/detail/${id}`);
+  };
+
   return (
-    <StWrap src={imgSrc}>
+    <StWrap src={imgSrc} onClick={handleCardClick} role="button" tabIndex={0}>
       <StNameLabel>{name}</StNameLabel>
       <StPriceLabel>{price}</StPriceLabel>
     </StWrap>

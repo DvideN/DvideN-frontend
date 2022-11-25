@@ -9,7 +9,7 @@ export const global = css`
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
       'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@ export const global = css`
     max-width: 500px;
     width: 500px;
     background: white;
-    height: 100%;
+    min-height: 100vh;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
 

@@ -88,6 +88,7 @@ const StButtonWrap = styled.div`
 const StNameWrap = styled.div``;
 
 const StInfoLabel = styled.p`
+  font-weight: 700;
   font-size: 13px;
   line-height: 18px;
 

@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 import logoImg from '@src/assets/logo.png';
-import theme from '@src/styles/theme';
 import React from 'react';
-import { useAccount } from 'wagmi';
 
 import ConnectWallet from './ConnectWallet';
 

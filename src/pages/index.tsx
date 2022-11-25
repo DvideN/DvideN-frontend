@@ -12,7 +12,6 @@ const Feed: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Loading />
     </>
   );
 };

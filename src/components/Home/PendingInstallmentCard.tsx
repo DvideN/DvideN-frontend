@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import IcCollateral from '@src/assets/IcCollateral.svg';
 import IcTransaction from '@src/assets/IcTransaction.svg';
+import SnoopImage from '@src/assets/snoop.png';
 import NftNameLabel from '@src/components/common/NftNameLabel';
 import SmallButton from '@src/components/common/SmallButton';
+import PendingCircle from '@src/components/Home/PendingCircle';
 import theme from '@src/styles/theme';
 import React from 'react';
 
@@ -42,7 +44,9 @@ function PendingInstallmentCard(props: CardProps) {
           </SmallButton>
         </StButtonWrap>
       </StLeftWrap>
-      <StRightWrap></StRightWrap>
+      <StRightWrap>
+        <PendingCircle src={SnoopImage.src} totalMonth={8} remainingMonth={2} />
+      </StRightWrap>
     </StWrap>
   );
 }

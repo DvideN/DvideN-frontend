@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import logoImg from '@src/assets/logo.png';
+import mainLogo from '@src/assets/mainLogo.gif';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <StWrap>
-      <StLogoBtn src={logoImg.src} onClick={handleClick} />
+      <StLogoBtn src={mainLogo.src} onClick={handleClick} />
       <ConnectWallet />
     </StWrap>
   );
@@ -40,5 +40,5 @@ const StLogoBtn = styled.button<StLogoBtnProps>`
   width: 44px;
   height: 55px;
 
-  background: url(${(props) => props.src}) center no-repeat;
+  background: url(${(props) => props.src}) center / cover no-repeat;
 `;

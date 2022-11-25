@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import LoadingIcon from '@src/assets/LoadingIcon.svg';
+import mainLogo from '@src/assets/mainLogo.gif';
+import Image from 'next/image';
 import React from 'react';
 interface LoadingProps {
   isIcon?: boolean;
@@ -12,7 +13,7 @@ interface RootStyleProps {
   height: string;
 }
 
-function Loading({ isIcon = false, width = '150px', height = '150px' }: LoadingProps) {
+function Loading({ isIcon = true, width = '150px', height = '150px' }: LoadingProps) {
   return (
     <StRoot width={width} height={height}>
       <svg
@@ -33,8 +34,8 @@ function Loading({ isIcon = false, width = '150px', height = '150px' }: LoadingP
       </svg>
       {isIcon && (
         <StImgWrapper>
-          {/* <Image src={logoImg} alt="divideN logo" /> */}
-          <LoadingIcon />
+          <Image src={mainLogo.src} alt="divideN logo" width={75} height={92} />
+          {/* <LoadingIcon /> */}
         </StImgWrapper>
       )}
     </StRoot>

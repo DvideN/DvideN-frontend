@@ -41,6 +41,7 @@ specifiers:
   prettier: ^2.6.2
   react: 18.1.0
   react-dom: 18.1.0
+  react-toastify: ^9.1.1
   stylelint: ^14.15.0
   stylelint-config-prettier: ^9.0.4
   stylelint-config-standard: ^29.0.0
@@ -62,6 +63,7 @@ dependencies:
   next: 12.1.6_td47doa7v53j5lryo7z7ezthbi
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
+  react-toastify: 9.1.1_ef5jwxihqo6n7gxfmzogljlgcm
   tailwindcss: 3.2.4
   wagmi: 0.8.6_fev67mhh4ujol6xewmxpccrxeq
 
@@ -5177,6 +5179,17 @@ packages:
       invariant: 2.2.4
       react: 18.1.0
       tslib: 2.4.1
+    dev: false
+
+  /react-toastify/9.1.1_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      clsx: 1.2.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
     dev: false
 
   /react/18.1.0:

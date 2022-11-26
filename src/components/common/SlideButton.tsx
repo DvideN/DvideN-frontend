@@ -14,7 +14,7 @@ const findLeft = (element: HTMLElement) => {
 };
 
 interface disabledStyleProps {
-  isAbled?: boolean;
+  isAble?: boolean;
 }
 
 interface overlayStyleProps {
@@ -30,7 +30,8 @@ interface SlideButtonProps {
   minSlideWidth?: number;
   minSlideVelocity?: number;
   customCaretWidth?: number;
-  isAbled?: boolean;
+  isAble?: boolean;
+
   [key: string]: any;
 }
 
@@ -43,7 +44,7 @@ function SlideButton({
   minSlideWidth = 0.6,
   minSlideVelocity = 0.6,
   customCaretWidth = 53,
-  isAbled = true,
+  isAble = true,
 }: SlideButtonProps) {
   const [overlayWidth, setOverlayWidth] = useState(customCaretWidth);
   const [slideComplete, setSlideComplete] = useState(false);
@@ -58,7 +59,7 @@ function SlideButton({
 
   const handlers = useSwipeable({
     onSwipedRight: (data) => {
-      if (slideComplete || !isAbled) return;
+      if (slideComplete || !isAble) return;
 
       const butWidth = buttonRef?.current?.offsetWidth;
 
@@ -84,7 +85,7 @@ function SlideButton({
       }
     },
     onSwiping: (data) => {
-      if (slideComplete || dirTypes.includes(data.dir) || !isAbled) return;
+      if (slideComplete || dirTypes.includes(data.dir) || !isAble) return;
 
       const offsetLeft = findLeft(buttonRef.current);
       const startPos = Math.abs(data.initial[0] - offsetLeft);
@@ -112,7 +113,7 @@ function SlideButton({
         handlers?.ref(t);
         buttonRef.current = t;
       }}
-      isAbled={isAbled}
+      isAble={isAble}
     >
       <StRailWrapper width={overlayWidth}>
         <StRail className="slide-overlay-wrapper">
@@ -122,7 +123,7 @@ function SlideButton({
               maxWidth: customCaretWidth,
             }}
           >
-            {isAbled ? <Arrow /> : <DisabledArrow />}
+            {isAble ? <Arrow /> : <DisabledArrow />}
           </StCaretWrapper>
           <StTxt className="slide-overlay-txt" width={overlayWidth}>
             {overlayText}
@@ -130,7 +131,7 @@ function SlideButton({
         </StRail>
       </StRailWrapper>
 
-      <StMainTxt isAbled={isAbled}>{mainText}</StMainTxt>
+      <StMainTxt isAble={isAble}>{mainText}</StMainTxt>
     </StRoot>
   );
 }
@@ -142,6 +143,7 @@ const StRoot = styled.div<disabledStyleProps>`
     pointer-events: none;
     user-select: none;
   }
+
   /* min-width: 200px; */
   padding: 5px;
   position: relative;
@@ -155,7 +157,7 @@ const StRoot = styled.div<disabledStyleProps>`
 
   position: relative;
 
-  background: ${(props) => (props.isAbled ? theme.colors.green600 : theme.colors.gray300)};
+  background: ${(props) => (props.isAble ? theme.colors.green600 : theme.colors.gray300)};
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
   height: 63px;
@@ -167,7 +169,7 @@ const StRailWrapper = styled.div<overlayStyleProps>`
   position: relative;
   height: 100%;
   width: ${(props) => `${props.width}px`};
-  max-width: calc(100%-40px);
+  //max-width: calc(100% - 40px);
 `;
 const StRail = styled.div`
   position: relative;
@@ -185,7 +187,7 @@ const StTxt = styled.div<overlayStyleProps>`
   align-items: center;
   white-space: nowrap;
   width: ${(props) => `${props.width}px`};
-  max-width: calc(100%-40px);
+  max-width: calc(100% - 40px);
 `;
 const StCaretWrapper = styled.div`
   position: absolute;
@@ -208,7 +210,8 @@ const StCaretWrapper = styled.div`
 
 const StMainTxt = styled.div<disabledStyleProps>`
   position: absolute;
-  color: ${(props) => (props.isAbled ? 'white' : 'rgba(0, 0, 0, 0.25)')};
+  color: ${(props) => (props.isAble ? 'white' : 'rgba(0, 0, 0, 0.25)')};
   left: 50%;
   transform: translateX(-50%);
+  font-weight: 700;
 `;

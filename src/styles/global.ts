@@ -35,7 +35,8 @@ export const global = css`
   h1,
   h2,
   h3,
-  input {
+  input,
+  div {
     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
       Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }

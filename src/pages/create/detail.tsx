@@ -5,7 +5,8 @@ import SlideButton from '@src/components/common/SlideButton';
 import CreateDetailInput from '@src/components/Create/CreateDetailInput';
 import theme from '@src/styles/theme';
 import Image from 'next/image';
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 
 interface DetailProps {
   src: string;
@@ -13,6 +14,12 @@ interface DetailProps {
 }
 
 function CreateDetail({ src, name }: DetailProps) {
+  const router = useRouter();
+
+  const [price, setPrice] = useState('');
+  const [downPaymentRate, setDownPaymentRate] = useState('');
+  const [installmentMonth, setInstallmentMonth] = useState('');
+
   return (
     <>
       <Header />
@@ -23,15 +30,26 @@ function CreateDetail({ src, name }: DetailProps) {
         </StImageWrap>
         <StNameLabel>{'NoiaDuck #494'}</StNameLabel>
         <StInputWrap>
-          <CreateDetailInput title={'Price'} unit={'MATIC'} />
-          <CreateDetailInput title={'Down payment Rate'} unit={'%'} />
-          <CreateDetailInput title={'Max Installment Month'} unit={'Month'} />
+          <CreateDetailInput title={'Price'} unit={'MATIC'} value={price} setValue={setPrice} />
+          <CreateDetailInput
+            title={'Down payment Rate'}
+            unit={'%'}
+            value={downPaymentRate}
+            setValue={setDownPaymentRate}
+          />
+          <CreateDetailInput
+            title={'Max Installment Month'}
+            unit={'Month'}
+            value={installmentMonth}
+            setValue={setInstallmentMonth}
+          />
         </StInputWrap>
         <SlideButton
           onSlideDone={() => {
-            console.log('success');
+            router.push('/create/success');
           }}
           mainText={'Confirm Upload'}
+          isAble={price != '' && downPaymentRate != '' && installmentMonth != ''}
         />
       </StWrap>
     </>
@@ -84,5 +102,6 @@ const StInputWrap = styled.div`
   row-gap: 28px;
 
   width: 85%;
-  margin: 40px 28px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 `;

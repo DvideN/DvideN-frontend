@@ -3,6 +3,7 @@ import Header from '@src/components/common/Header';
 import HomeTab from '@src/components/common/HomeTab';
 import RoundButton from '@src/components/common/RoundButton';
 import PendingInstallmentCard from '@src/components/Purchase/PendingInstallmentCard';
+import SaleNftList from '@src/components/Purchase/SaleNftList';
 import theme from '@src/styles/theme';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -23,38 +24,7 @@ function SaleTab() {
         </RoundButton>
       </StUploadWrap>
       <StCardWrap>
-        <PendingInstallmentCard
-          name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
-          installmentMonth={8}
-          collateral={'0.0011 ETH'}
-          remainingMonth={2}
-          status={'pending'}
-        />
-        <PendingInstallmentCard
-          name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
-          installmentMonth={8}
-          collateral={'0.0011 ETH'}
-          remainingMonth={0}
-          status={'done'}
-        />
-        <PendingInstallmentCard
-          name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
-          installmentMonth={8}
-          collateral={'0.0011 ETH'}
-          remainingMonth={2}
-          status={'fail'}
-        />
-        <PendingInstallmentCard
-          name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
-          installmentMonth={8}
-          collateral={'0.0011 ETH'}
-          remainingMonth={2}
-          status={'cancel'}
-        />
+        <SaleNftList />
       </StCardWrap>
     </>
   );

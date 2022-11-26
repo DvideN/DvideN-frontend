@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import snoopImage from '@src/assets/snoop.png';
 import Header from '@src/components/common/Header';
+import SlideButton from '@src/components/common/SlideButton';
 import CreateDetailInput from '@src/components/Create/CreateDetailInput';
 import theme from '@src/styles/theme';
 import Image from 'next/image';
@@ -26,6 +27,12 @@ function CreateDetail({ src, name }: DetailProps) {
           <CreateDetailInput title={'Down payment Rate'} unit={'%'} />
           <CreateDetailInput title={'Max Installment Month'} unit={'Month'} />
         </StInputWrap>
+        <SlideButton
+          onSlideDone={() => {
+            console.log('success');
+          }}
+          mainText={'Confirm Upload'}
+        />
       </StWrap>
     </>
   );
@@ -38,6 +45,8 @@ const StWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-bottom: 30px;
 `;
 
 const StTitleLabel = styled.p`

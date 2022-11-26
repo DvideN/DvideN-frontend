@@ -40,6 +40,11 @@ export const global = css`
       Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
 
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+
   * {
     box-sizing: border-box;
     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,

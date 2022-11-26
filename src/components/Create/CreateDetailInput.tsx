@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import SlideButton from '@src/components/common/SlideButton';
 import theme from '@src/styles/theme';
 import React from 'react';
 

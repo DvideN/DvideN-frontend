@@ -14,6 +14,7 @@ interface CardProps {
   installmentMonth: number;
   collateral: string;
   remainingMonth: number;
+  status: 'pending' | 'done' | 'fail';
 }
 
 function PendingInstallmentCard(props: CardProps) {
@@ -25,24 +26,34 @@ function PendingInstallmentCard(props: CardProps) {
           <StInfoLabel>
             Monthly Payment: {props.monthlyPayment}
             <br />
-            Installment Months: {props.installmentMonth}
+            Installment Months: {props.installmentMonth} month
             <br />
             Collateral: {props.collateral}
           </StInfoLabel>
         </StInfoWrap>
         <StButtonWrap>
-          <SmallButton>
+          <SmallButton width={'184px'}>
             <SmallButton.Icon Icon={IcCollateral} />
-            <SmallButton.Label>See Collateral</SmallButton.Label>
+            <SmallButton.Label>See Money Streaming</SmallButton.Label>
           </SmallButton>
-          <SmallButton>
+          <SmallButton width={'150px'}>
             <SmallButton.Icon Icon={IcTransaction} />
             <SmallButton.Label>See Transaction</SmallButton.Label>
           </SmallButton>
         </StButtonWrap>
+        {props.status == 'done' && (
+          <SmallButton width={'99px'} rainbow={true}>
+            <SmallButton.Label>Unlock NFT</SmallButton.Label>
+          </SmallButton>
+        )}
       </StLeftWrap>
       <StRightWrap>
-        <PendingCircle src={SnoopImage.src} totalMonth={8} remainingMonth={2} />
+        <PendingCircle
+          src={SnoopImage.src}
+          totalMonth={props.installmentMonth}
+          remainingMonth={props.remainingMonth}
+          status={props.status}
+        />
       </StRightWrap>
     </StWrap>
   );
@@ -65,6 +76,7 @@ const StWrap = styled.div`
 const StLeftWrap = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   row-gap: 20px;
 `;
 

@@ -1,6 +1,8 @@
 import 'react-circular-progressbar/dist/styles.css';
 
 import styled from '@emotion/styled';
+import IcCheck from '@src/assets/IcCheck.svg';
+import IcLimited from '@src/assets/IcLimited.svg';
 import IcLock from '@src/assets/icLock.svg';
 import theme from '@src/styles/theme';
 import React from 'react';
@@ -10,33 +12,53 @@ interface Props {
   totalMonth: number;
   remainingMonth: number;
   src: string;
+  status: 'pending' | 'done' | 'fail';
 }
 
 interface StyleProps {
   src: string;
 }
 
-function PendingCircle({ totalMonth, remainingMonth, src }: Props) {
+function PendingCircle({ totalMonth, remainingMonth, src, status }: Props) {
   const percentage = ((totalMonth - remainingMonth) / totalMonth) * 100;
+
+  const getStatusLogo = () => {
+    const iconStyle = 'absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]';
+
+    switch (status) {
+      case 'pending':
+        return <IcLock className={iconStyle} />;
+      case 'done':
+        return <IcCheck className={iconStyle} />;
+      case 'fail':
+        return <IcLimited className={iconStyle} />;
+    }
+  };
 
   return (
     <StWrap>
       <StProgressWrap src={src}>
         <StCircleWrap>
-          <CircularProgressbar
-            value={percentage}
-            strokeWidth={5}
-            styles={buildStyles({
-              pathColor: 'rgba(24, 207, 108, 0.4)',
-              trailColor: '#E8E9EA',
+          {status == 'fail' || (
+            <CircularProgressbar
+              value={percentage}
+              strokeWidth={5}
+              styles={buildStyles({
+                pathColor: '#18CF6C',
+                trailColor: '#E8E9EA',
 
-              pathTransitionDuration: 0.6,
-            })}
-          ></CircularProgressbar>
-          <IcLock className="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]" />
+                pathTransitionDuration: 0.6,
+              })}
+            />
+          )}
+          {getStatusLogo()}
         </StCircleWrap>
       </StProgressWrap>
-      <StRemainLabel>{remainingMonth} months left</StRemainLabel>
+      {status == 'done' || (
+        <StRemainLabel>
+          {status != 'fail' ? `${remainingMonth} months left` : 'Payment Fail'}
+        </StRemainLabel>
+      )}
     </StWrap>
   );
 }

@@ -9,13 +9,13 @@ function HomeTab() {
         router.push('/');
         break;
       case 'purchase':
-        router.push('/');
+        router.push('/purchase');
         break;
       case 'my':
-        router.push('/');
+        router.push('/my');
         break;
       case 'sale':
-        router.push('/');
+        router.push('/sale');
         break;
       default:
         break;

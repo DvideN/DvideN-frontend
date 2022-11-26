@@ -12,6 +12,7 @@ import RoundButton from '../common/RoundButton';
 import { useQuery } from '@tanstack/react-query';
 import { getMyNft } from '@src/utils/getMyNft';
 import { getNextTxStep } from '@src/utils/getNextTxStep';
+import { useRouter } from 'next/router';
 
 interface stageProps {
   currentType: TransactionType;
@@ -59,8 +60,16 @@ const Transfer = ({ currentType, setCurrentType }: stageProps) => {
   //   suspense: true,
   // });
   // use reactquery + getNextTxStep utils
-  const isSuccess = false;
-  const handleClick = () => {};
+  const router = useRouter();
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleClick = () => {
+    setTimeout(() => {
+      setIsSuccess(true);
+      setCurrentType(getNextTxStep('transfer'));
+      router.push('/');
+    }, 500);
+  };
 
   return (
     <StRoot>
@@ -110,7 +119,14 @@ const Collateral = ({ currentType, setCurrentType }: stageProps) => {
 };
 const Wrapping = ({ currentType, setCurrentType }: stageProps) => {
   // use reactquery + getNextTxStep utils
-  const isSuccess = false;
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleClick = () => {
+    setTimeout(() => {
+      setIsSuccess(true);
+      setCurrentType(getNextTxStep('warpping'));
+    }, 500);
+  };
 
   return (
     <StRoot>
@@ -120,7 +136,12 @@ const Wrapping = ({ currentType, setCurrentType }: stageProps) => {
           Done! 🎉
         </RoundButton>
       ) : (
-        <RoundButton width={'80%'} height={'65px'} disabled={currentType !== 'warpping'}>
+        <RoundButton
+          width={'80%'}
+          height={'65px'}
+          disabled={currentType !== 'warpping'}
+          onClick={handleClick}
+        >
           Sign
         </RoundButton>
       )}

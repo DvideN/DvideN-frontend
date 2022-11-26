@@ -4,6 +4,7 @@ import Header from '@src/components/common/Header';
 import Notice from '@src/components/Purchase/Notice';
 // import SlideButton from '@src/components/common/SlideButton';
 import PurchaseModal from '@src/components/Purchase/PurchaseModal';
+import TotalPrice from '@src/components/Purchase/TotalPrice';
 import theme from '@src/styles/theme';
 import { getSliceAddress } from '@src/utils/string';
 import dynamic from 'next/dynamic';
@@ -17,8 +18,7 @@ const SlideButton = dynamic(() => import('@src/components/common/SlideButton'), 
 function Purchase() {
   const [reset, setReset] = useState(false);
   const handleSlideSuccess = () => {
-    console.log(inputRef.current);
-    inputRef.current && inputRef.current.click();
+    inputRef.current && (inputRef.current as any).click();
     setReset((prev) => !prev);
   };
 
@@ -45,7 +45,7 @@ function Purchase() {
         <StSubTitle>NoiaDuck #494</StSubTitle>
         <StDescription>{getSliceAddress(3, addresss)}</StDescription>
         <Notice />
-
+        <TotalPrice price={0.1021} />
         <input type="checkbox" id="my-modal-6" className="modal-toggle bg-black" ref={inputRef} />
         <PurchaseModal setReset={setReset} />
         <SlideButton onSlideDone={handleSlideSuccess} mainText="Confirm Purchase" reset={reset} />

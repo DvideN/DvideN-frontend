@@ -43,7 +43,7 @@ function HomeTab() {
 
   return (
     <>
-      <div className={'flex overflow-x-scroll overflow-y-hidden max-w-[100vw]'}>
+      <div className={'flex overflow-x-scroll overflow-y-hidden max-w-[100vw] scrollbar-hide'}>
         <div className="mt-1.5 m-auto text-center font-semibold text-gray-500 border-b flex gap-5 px-5">
           <button id={'explore'} className={setTailWindClass('explore')} onClick={handleClick}>
             Explore

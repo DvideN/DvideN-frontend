@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import EthIconSmall from '@src/assets/EthIconSmall.svg';
+import MaticIcon from '@src/assets/polygon-logo-22.svg';
 import theme from '@src/styles/theme';
 import Image from 'next/image';
 import React from 'react';
@@ -15,7 +15,7 @@ function DetailPrice({ title, price, duration }: DetailProps) {
     <StWrap>
       <StTitleLabel>{title}</StTitleLabel>
       <StPriceWrap>
-        <EthIconSmall />
+        <MaticIcon />
         <StPriceLabel>{price}</StPriceLabel>
         {duration && <StDurationLabel>/ {duration}</StDurationLabel>}
       </StPriceWrap>

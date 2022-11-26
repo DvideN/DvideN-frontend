@@ -46,6 +46,7 @@ function CreateDetail({ src, name }: DetailProps) {
             console.log('success');
           }}
           mainText={'Confirm Upload'}
+          isAble={price != '' && downPaymentRate != '' && installmentMonth != ''}
         />
       </StWrap>
     </>

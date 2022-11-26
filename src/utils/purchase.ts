@@ -1,8 +1,9 @@
-import { DivideNInstallmentAddress } from '@src/constants/contract';
+import { DivideNInstallmentAddress, TestAddress } from '@src/constants/contract';
 import { DivideNInstallment } from '@src/lib/DivideNInstallment';
 import { ERC721abi } from '@src/lib/ERC721abi';
+import { TestAbi } from '@src/lib/TestAbi';
 
-import { getContract } from './contract';
+import { getContract, getSignerContract } from './contract';
 
 interface registerInstallmentProps {
   nftAddress: string;
@@ -13,16 +14,39 @@ interface registerInstallmentProps {
   ourContractAddress: string;
 }
 
-export const setApproveAll = async (nftAddress: string, ownerAddress: string) => {
-  const purchaseContract = getContract({
+export const setApproveAll = async (nftAddress: string, ownerAddress?: string) => {
+  console.log('ownerAddress', ownerAddress);
+  const purchaseContract = await getSignerContract({
     abi: ERC721abi.abi,
-    contractAddress: DivideNInstallmentAddress,
+    contractAddress: nftAddress,
+  });
+  // DivideNInstallmentAddress
+  console.log('purchaseContract', purchaseContract);
+  console.log('들어옴');
+
+  await purchaseContract.setApprovalForAll(DivideNInstallmentAddress, true);
+  console.log('approve');
+
+  // // for test
+  // return await purchaseContract.isApprovedForAll(ownerAddress, nftAddress);
+};
+
+export const approve = async (nftAddress: string, ownerAddress?: string, tokenId) => {
+  // const purchaseContract = await getSignerContract({
+  //   abi: ERC721abi.abi,
+  //   contractAddress: nftAddress,
+  // });
+  // console.log('before', purchaseContract.address);
+  // console.log('approving...', DivideNInstallmentAddress);
+  // await purchaseContract.approve(DivideNInstallmentAddress, tokenId);
+  // console.log('after');
+  const testContract = await getSignerContract({
+    abi: TestAbi.abi,
+    contractAddress: TestAddress,
   });
 
-  await purchaseContract.setApprovalForAll(nftAddress, true);
-
-  // for test
-  return await purchaseContract.isApprovedForAll(ownerAddress, nftAddress);
+  await testContract.setNumber(1);
+  console.log('되니');
 };
 export const registerInstallment = async ({
   nftAddress,

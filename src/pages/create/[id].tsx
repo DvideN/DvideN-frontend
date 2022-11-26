@@ -8,11 +8,14 @@ import SlideButton from '@src/components/common/SlideButton';
 import SSRSafeSuspense from '@src/components/common/SSRSafeSuspense';
 import CreateDetailInput from '@src/components/Create/CreateDetailInput';
 import CreateSale from '@src/components/Create/CreateSale';
+import { NftMintingAddress } from '@src/constants/contract';
 import theme from '@src/styles/theme';
 import { getDataFromTokenId } from '@src/utils/getDataFromTokenId';
+import { setApproveAll, approve } from '@src/utils/purchase';
 import { QueryClient, useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
+import { useAccount } from 'wagmi';
 
 function CreateDetail() {
   return (
@@ -39,6 +42,20 @@ const Resolved = () => {
   const [price, setPrice] = useState('');
   const [downPaymentRate, setDownPaymentRate] = useState('');
   const [installmentMonth, setInstallmentMonth] = useState('');
+  // const { address } = useAccount();
+
+  // const approveFunc = async () => {
+  //   console.log('query?.id', query?.id);
+  //   // await setApproveAll(NftMintingAddress, address);
+  //   await approve(NftMintingAddress, address, 117);
+  // };
+  const handleSuccess = () => {
+    router.push('/create/success');
+  };
+
+  // useEffect(() => {
+  //   approveFunc();
+  // }, []);
 
   return (
     <>
@@ -62,9 +79,7 @@ const Resolved = () => {
           />
         </StInputWrap>
         <SlideButton
-          onSlideDone={() => {
-            router.push('/create/success');
-          }}
+          onSlideDone={handleSuccess}
           mainText={'Confirm Upload'}
           isAble={price != '' && downPaymentRate != '' && installmentMonth != ''}
         />

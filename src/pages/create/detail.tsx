@@ -99,4 +99,6 @@ const StInputWrap = styled.div`
   row-gap: 28px;
 
   width: 85%;
+  margin-top: 40px;
+  margin-bottom: 20px;
 `;

@@ -155,7 +155,7 @@ const StRoot = styled.div<disabledStyleProps>`
 
   position: relative;
 
-  background: ${(props) => (props.isAbled ? theme.colors.green700 : theme.colors.gray300)};
+  background: ${(props) => (props.isAbled ? theme.colors.green600 : theme.colors.gray300)};
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
   height: 63px;

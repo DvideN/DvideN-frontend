@@ -3,11 +3,11 @@ import { DivideNInstallment } from '@src/lib/DivideNInstallment';
 
 import { getContract } from './contract';
 
-export const getBuyableInstallments = async () => {
+export const getSellingInstallmentsInProgress = async () => {
   const purchaseContract = getContract({
     abi: DivideNInstallment.abi,
     contractAddress: DivideNInstallmentAddress,
   });
 
-  return await purchaseContract.getBuyableInstallments();
+  return await purchaseContract.getSellingInstallmentsInProgress();
 };

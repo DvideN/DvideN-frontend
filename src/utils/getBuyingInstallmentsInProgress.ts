@@ -9,5 +9,5 @@ export const getBuyingInstallmentsInProgress = async () => {
     contractAddress: DivideNInstallmentAddress,
   });
 
-  return await purchaseContract.getBuyingInstallmentsInProgress;
+  return await purchaseContract.getBuyingInstallmentsInProgress();
 };

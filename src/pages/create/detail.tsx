@@ -5,6 +5,7 @@ import SlideButton from '@src/components/common/SlideButton';
 import CreateDetailInput from '@src/components/Create/CreateDetailInput';
 import theme from '@src/styles/theme';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 interface DetailProps {
@@ -13,6 +14,8 @@ interface DetailProps {
 }
 
 function CreateDetail({ src, name }: DetailProps) {
+  const router = useRouter();
+
   const [price, setPrice] = useState('');
   const [downPaymentRate, setDownPaymentRate] = useState('');
   const [installmentMonth, setInstallmentMonth] = useState('');
@@ -43,7 +46,7 @@ function CreateDetail({ src, name }: DetailProps) {
         </StInputWrap>
         <SlideButton
           onSlideDone={() => {
-            console.log('success');
+            router.push('/create/success');
           }}
           mainText={'Confirm Upload'}
           isAble={price != '' && downPaymentRate != '' && installmentMonth != ''}

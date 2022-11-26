@@ -1,0 +1,39 @@
+{
+  "ownerAddress": "0xcc0174124b8a26a7f216639e6c6a26bd645d6761",
+  "contractAddress": "0xdf69b31DD484957EC057e7B73E330087D42064B5",
+  "market": "0xa436f0934a28cA21B537ebfc7911384036C7c63b",
+  "data": [
+    {
+      "ownerAddress": "0xcc0174124b8a26a7f216639e6c6a26bd645d6761",
+      "contractAddress": "0xdf69b31DD484957EC057e7B73E330087D42064B5",
+      "tokenId": 114,
+      "imageUrl": "https://img.nftically.com/testnets-assets/assets/0b8fcc8f-32a8-4373-863d-99f2192e448f/a00d6a90b26448d481586b98936da174/vadim-bogulov-ZHFIR2oAPnM-unsplash.jpg?tr=n-item_page_preview,q-80",
+      "name": "squid boy #1",
+      "mintingDate": "2022-05-20"
+    },
+    {
+      "ownerAddress": "0xcc0174124b8a26a7f216639e6c6a26bd645d6761",
+      "contractAddress": "0xdf69b31DD484957EC057e7B73E330087D42064B5",
+      "tokenId": 115,
+      "imageUrl": "https://polygon.testnets-nftically.com/assets/widget/ebe27db1-64df-4d7a-8843-e1ce0f376c88/w3",
+      "name": "NoiaDuck",
+      "mintingDate": "2022-05-20"
+    },
+    {
+      "ownerAddress": "0xcc0174124b8a26a7f216639e6c6a26bd645d6761",
+      "contractAddress": "0xdf69b31DD484957EC057e7B73E330087D42064B5",
+      "tokenId": 116,
+      "imageUrl": "https://img.nftically.com/testnets-assets/assets/f3700365-fa9b-4c8a-976c-c4a80f1ccb52/b1b0ff9146814325966a12f1de03ec4a/vadim-bogulov-lG4A4GmcYYg-unsplash.jpg?tr=n-item_page_preview,q-80",
+      "name": "squid boy #2",
+      "mintingDate": "2022-05-20"
+    },
+    {
+      "ownerAddress": "0xcc0174124b8a26a7f216639e6c6a26bd645d6761",
+      "contractAddress": "0xdf69b31DD484957EC057e7B73E330087D42064B5",
+      "tokenId": 117,
+      "imageUrl": "https://img.nftically.com/testnets-assets/assets/c8d0cb6a-6b1a-47c7-a3c1-7ca4353f429d/b1456779373943f69f61aa6a96ada82d/aldi-sigun-K-sdQ12jZeY-unsplash.jpg?tr=n-item_page_preview,q-80",
+      "name": "crypto boy",
+      "mintingDate": "2022-05-20"
+    }
+  ]
+}

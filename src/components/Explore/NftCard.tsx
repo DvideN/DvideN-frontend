@@ -42,7 +42,7 @@ const StWrap = styled.div<StyleProps>`
       rgba(0, 0, 0, 0) 40.58%,
       rgba(0, 0, 0, 0.7) 70.79%
     ),
-    url(${(props) => props.src}) no-repeat;
+    url(${(props) => props.src}) no-repeat center;
   background-size: 100%;
 
   border-radius: 20px;
@@ -52,6 +52,12 @@ const StWrap = styled.div<StyleProps>`
   justify-content: flex-end;
 
   padding: 28px;
+
+  -webkit-transition: all 0.3s ease-in-out;
+
+  :hover {
+    background-size: 120%;
+  }
 `;
 
 const StNameLabel = styled.p`

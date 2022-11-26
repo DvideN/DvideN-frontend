@@ -6,6 +6,8 @@ import theme from '@src/styles/theme';
 import React from 'react';
 
 function PurchaseTab() {
+  const ticker = 'MATIC';
+
   return (
     <>
       <Header />
@@ -13,33 +15,33 @@ function PurchaseTab() {
       <StCardWrap>
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
+          monthlyPayment={`0.0102 ${ticker}`}
           installmentMonth={8}
-          collateral={'0.0011 ETH'}
+          collateral={`0.0011 ${ticker}`}
           remainingMonth={2}
           status={'pending'}
         />
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
+          monthlyPayment={`0.0102 ${ticker}`}
           installmentMonth={8}
-          collateral={'0.0011 ETH'}
+          collateral={`0.0011 ${ticker}`}
           remainingMonth={0}
           status={'done'}
         />
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
+          monthlyPayment={`0.0102 ${ticker}`}
           installmentMonth={8}
-          collateral={'0.0011 ETH'}
+          collateral={`0.0011 ${ticker}`}
           remainingMonth={2}
           status={'cancel'}
         />
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
+          monthlyPayment={`0.0102 ${ticker}`}
           installmentMonth={8}
-          collateral={'0.0011 ETH'}
+          collateral={`0.0011 ${ticker}`}
           remainingMonth={2}
           status={'fail'}
         />

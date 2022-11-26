@@ -4,10 +4,12 @@ import IcTransaction from '@src/assets/IcTransaction.svg';
 // import SnoopImage from '@src/assets/snoop.png';
 import NftNameLabel from '@src/components/common/NftNameLabel';
 import SmallButton from '@src/components/common/SmallButton';
+import SuccessModal from '@src/components/common/SuccessModal';
 import PendingCircle from '@src/components/Purchase/PendingCircle';
+import UnlockNftModal from '@src/components/Purchase/UnlockNftModal';
 import theme from '@src/styles/theme';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useRef } from 'react';
 
 interface CardProps {
   name: string;
@@ -23,6 +25,11 @@ function PendingInstallmentCard(props: CardProps) {
   const router = useRouter();
   const actionType = router.pathname.slice(1);
 
+  const inputRef = useRef(null);
+  const handleClick = () => {
+    inputRef.current && (inputRef.current as any).click();
+  };
+
   return (
     <StWrap>
       <StLeftWrap>
@@ -33,7 +40,7 @@ function PendingInstallmentCard(props: CardProps) {
             <br />
             Installment Months: {props.installmentMonth} month
             <br />
-            Collateral: {props.collateral}
+            Down payment: {props.collateral}
           </StInfoLabel>
         </StInfoWrap>
         <StButtonWrap>
@@ -47,9 +54,18 @@ function PendingInstallmentCard(props: CardProps) {
           </SmallButton>
         </StButtonWrap>
         {props.status == 'done' && actionType == 'purchase' && (
-          <SmallButton width={'103px'} type={'rainbow'}>
-            <SmallButton.Label>Unlock NFT</SmallButton.Label>
-          </SmallButton>
+          <>
+            <SmallButton width={'103px'} type={'rainbow'} onClick={handleClick}>
+              <SmallButton.Label>Unlock NFT</SmallButton.Label>
+            </SmallButton>
+            <input
+              type="checkbox"
+              id="my-modal-6"
+              className="modal-toggle bg-black"
+              ref={inputRef}
+            />
+            <UnlockNftModal />
+          </>
         )}
         {props.status == 'cancel' && actionType == 'sale' && (
           <SmallButton width={'99px'} type={'black'}>

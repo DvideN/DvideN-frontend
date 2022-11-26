@@ -14,6 +14,8 @@ function SaleTab() {
     router.push('/create');
   };
 
+  const ticker = 'MATIC';
+
   return (
     <>
       <Header />

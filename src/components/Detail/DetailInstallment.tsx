@@ -16,7 +16,7 @@ function DetailInstallment({ month, collateral, percent }: DetailProps) {
         <StContentLabel>{month}</StContentLabel>
       </StRowWrap>
       <StRowWrap>
-        <StTitleLabel>Collateral</StTitleLabel>
+        <StTitleLabel>Down payment</StTitleLabel>
         <StCollateralWrap>
           <StContentLabel>{collateral}</StContentLabel>
           <StPercentLabel>({percent}%)</StPercentLabel>

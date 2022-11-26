@@ -12,7 +12,7 @@ function MyNftTab() {
       <Header />
       <HomeTab />
       <StCardWrap>
-        <BalanceSummaryCard costUnit={'ETH'} succeededCost={175} canceledCost={125} />
+        <BalanceSummaryCard costUnit={'MATIC'} succeededCost={175} canceledCost={125} />
         <NftList />
       </StCardWrap>
     </>

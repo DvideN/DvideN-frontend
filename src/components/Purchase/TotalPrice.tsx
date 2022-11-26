@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import EthIcon from '@src/assets/EthIcon.svg';
 import Info from '@src/assets/Info.svg';
+import MaticLogo from '@src/assets/polygon-logo-27.svg';
 import theme from '@src/styles/theme';
 import React from 'react';
 
@@ -10,7 +10,7 @@ interface TotalPriceProps {
 }
 
 const totalPrice = 'Total Price';
-const ticker = 'ETH';
+const ticker = 'MATIC';
 const insufficientMessage = 'Insufficient balance';
 
 function TotalPrice({ price, isSufficient = true }: TotalPriceProps) {
@@ -18,7 +18,7 @@ function TotalPrice({ price, isSufficient = true }: TotalPriceProps) {
     <StRoot>
       <StLabel>{totalPrice}</StLabel>
       <StContents>
-        <EthIcon />
+        <MaticLogo />
         <StText>{`${price} ${ticker}`}</StText>
       </StContents>
       {!isSufficient && (
@@ -43,7 +43,6 @@ const StRoot = styled.section`
   position: relative;
 `;
 const StLabel = styled.label`
-  font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;
   font-size: 13px;
@@ -58,10 +57,10 @@ const StLabel = styled.label`
 const StContents = styled.div`
   display: flex;
   margin-top: 7px;
+  align-items: center;
   /* margin-bottom: 32px; */
 `;
 const StText = styled.p`
-  font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -75,9 +74,9 @@ const StNoticeLabel = styled.label`
   /* position: absolute; */
   display: flex;
   margin-top: 7px;
+
   & p {
     display: flex;
-    font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
     font-size: 13px;

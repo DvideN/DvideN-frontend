@@ -6,12 +6,16 @@ import NftCard from '@src/components/Explore/NftCard';
 import BalanceSummaryCard from '@src/components/MyNft/BalanceSummaryCard';
 import MyNftCard from '@src/components/MyNft/MyNftCard';
 import PendingInstallmentCard from '@src/components/Purchase/PendingInstallmentCard';
+import UnlockNftModal from '@src/components/Purchase/UnlockNftModal';
 import theme from '@src/styles/theme';
 import { getBuyableInstallments } from '@src/utils/getBuyableInstallments';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import React, { useRef } from 'react';
 
 const Feed: NextPage = () => {
+  const ticker = 'MATIC';
+
   const getTest = async () => {
     const data = await getBuyableInstallments();
 
@@ -30,8 +34,8 @@ const Feed: NextPage = () => {
       <Header />
       <HomeTab />
       <StCardWrap>
-        <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price="0.1021 ETH" />
-        <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price="0.1021 ETH" />
+        <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price={`0.1021 ${ticker}`} />
+        <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price={`0.1021 ${ticker}`} />
         <StComingSoonLabel>Coming soon :)</StComingSoonLabel>
       </StCardWrap>
     </>

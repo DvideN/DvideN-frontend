@@ -5,7 +5,7 @@ import React from 'react';
 
 import CountInput from '../common/CountInput';
 
-const ticker = 'ETH';
+const ticker = 'MATIC';
 
 interface PurchaseFormProps {
   installmentMonth?: number;

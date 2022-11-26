@@ -7,7 +7,15 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   className?: string;
   children: ReactNode;
 
+  width: string;
+  rainbow?: boolean;
+
   [key: string]: any;
+}
+
+interface ButtonStyleProps {
+  width: string;
+  rainbow?: boolean;
 }
 
 interface ImageProps {
@@ -25,9 +33,9 @@ interface LabelProps {
   [key: string]: any;
 }
 
-function SmallButton({ children, handleClick, ...props }: ButtonProps) {
+function SmallButton({ children, handleClick, rainbow, ...props }: ButtonProps) {
   return (
-    <StButton onClick={handleClick} {...props}>
+    <StButton onClick={handleClick} rainbow={rainbow} {...props}>
       {children}
     </StButton>
   );
@@ -43,22 +51,38 @@ SmallButton.Label = function SmallButtonLabel({ children, ...props }: LabelProps
 
 export default SmallButton;
 
-const StButton = styled.button`
-  padding: 7px 12px;
-  height: 30px;
+const StButton = styled.button<ButtonStyleProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
 
-  border: 1px solid rgba(0, 0, 0, 0.02);
-  border-radius: 100px;
-
-  background: ${theme.colors.gray100};
-  color: ${theme.colors.gray800};
+  width: ${(props) => props.width};
+  height: 34px;
 
   font-weight: 700;
   font-size: 13px;
 
-  opacity: 0.9;
+  border: 2px solid transparent;
+  border-radius: 50px;
 
-  display: flex;
-  align-items: center;
-  column-gap: 8px;
+  background: ${(props) => (props.rainbow ? theme.colors.rainbow : theme.colors.gray100)};
+  color: ${(props) => (props.rainbow ? theme.colors.white : theme.colors.gray800)};
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: 2s rotate linear infinite;
+
+  --angle: 0deg;
+
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
 `;

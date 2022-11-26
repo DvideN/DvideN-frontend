@@ -25,7 +25,7 @@ interface SlideButtonProps {
   mainText?: string;
   overlayText?: string;
   onSlideDone: () => void;
-  reset?: () => void;
+  reset?: boolean;
   delta?: number;
   minSlideWidth?: number;
   minSlideVelocity?: number;
@@ -143,7 +143,7 @@ const StRoot = styled.div<disabledStyleProps>`
     user-select: none;
   }
   /* min-width: 200px; */
-  padding: 11px;
+  padding: 5px;
   position: relative;
   overflow: hidden;
   color: #000;
@@ -160,6 +160,7 @@ const StRoot = styled.div<disabledStyleProps>`
   border-radius: 100px;
   height: 63px;
   width: 90%;
+  margin-top: 32px;
 `;
 
 const StRailWrapper = styled.div<overlayStyleProps>`

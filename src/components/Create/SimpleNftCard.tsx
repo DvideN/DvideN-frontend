@@ -18,7 +18,14 @@ function SimpleNftCard({ src, name, selected = false }: CardProps) {
   return (
     <StWrap>
       <StImageWrap selected={selected}>
-        <Image src={src} alt={'nft'} layout="fill" objectFit="cover" />
+        <Image
+          src={src}
+          alt={'nft'}
+          layout="fill"
+          objectFit="cover"
+          blurDataURL={src}
+          placeholder="blur"
+        />
       </StImageWrap>
       <StNameLabel>{name}</StNameLabel>
     </StWrap>

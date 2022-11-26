@@ -26,7 +26,7 @@ function PendingInstallmentCard(props: CardProps) {
           <StInfoLabel>
             Monthly Payment: {props.monthlyPayment}
             <br />
-            Installment Months: {props.installmentMonth}
+            Installment Months: {props.installmentMonth} month
             <br />
             Collateral: {props.collateral}
           </StInfoLabel>

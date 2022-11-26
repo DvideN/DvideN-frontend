@@ -38,15 +38,15 @@ function SendTransaction() {
 }
 
 const Resolved = () => {
-  const [currentType, setCurrentType] = useState<TransactionType>('transfer');
+  const [currentType, setCurrentType] = useState<TransactionType>('collateral');
 
   return (
     <>
       <StTitle className="font-bold text-lg">{PURCHASE_MODAL['default'].title}</StTitle>
       <StDescription className="py-4">{PURCHASE_MODAL['default'].description}</StDescription>
-      <Transfer currentType={currentType} setCurrentType={setCurrentType} />
       <Collateral currentType={currentType} setCurrentType={setCurrentType} />
       <Wrapping currentType={currentType} setCurrentType={setCurrentType} />
+      <Transfer currentType={currentType} setCurrentType={setCurrentType} />
     </>
   );
 };

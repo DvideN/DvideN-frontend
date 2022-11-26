@@ -14,7 +14,7 @@ const findLeft = (element: HTMLElement) => {
 };
 
 interface disabledStyleProps {
-  isAbled?: boolean;
+  isAble?: boolean;
 }
 
 interface overlayStyleProps {
@@ -113,7 +113,7 @@ function SlideButton({
         handlers?.ref(t);
         buttonRef.current = t;
       }}
-      isAbled={isAble}
+      isAble={isAble}
     >
       <StRailWrapper width={overlayWidth}>
         <StRail className="slide-overlay-wrapper">
@@ -131,7 +131,7 @@ function SlideButton({
         </StRail>
       </StRailWrapper>
 
-      <StMainTxt isAbled={isAble}>{mainText}</StMainTxt>
+      <StMainTxt isAble={isAble}>{mainText}</StMainTxt>
     </StRoot>
   );
 }
@@ -157,7 +157,7 @@ const StRoot = styled.div<disabledStyleProps>`
 
   position: relative;
 
-  background: ${(props) => (props.isAbled ? theme.colors.green600 : theme.colors.gray300)};
+  background: ${(props) => (props.isAble ? theme.colors.green600 : theme.colors.gray300)};
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
   height: 63px;
@@ -169,7 +169,7 @@ const StRailWrapper = styled.div<overlayStyleProps>`
   position: relative;
   height: 100%;
   width: ${(props) => `${props.width}px`};
-  max-width: calc(100% - 40px);
+  //max-width: calc(100% - 40px);
 `;
 const StRail = styled.div`
   position: relative;
@@ -210,7 +210,7 @@ const StCaretWrapper = styled.div`
 
 const StMainTxt = styled.div<disabledStyleProps>`
   position: absolute;
-  color: ${(props) => (props.isAbled ? 'white' : 'rgba(0, 0, 0, 0.25)')};
+  color: ${(props) => (props.isAble ? 'white' : 'rgba(0, 0, 0, 0.25)')};
   left: 50%;
   transform: translateX(-50%);
 `;

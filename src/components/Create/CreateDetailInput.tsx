@@ -19,7 +19,7 @@ function CreateDetailInput({ title, unit, value, setValue }: InputProps) {
     <StWrap>
       <StTitleLabel>{title}</StTitleLabel>
       <StInputWrap>
-        <StInputField value={value} onChange={handleChange} />
+        <StInputField type="number" value={value} onChange={handleChange} />
         <StUnitLabel>{unit}</StUnitLabel>
       </StInputWrap>
     </StWrap>

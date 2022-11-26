@@ -79,7 +79,7 @@ const StRightWrap = styled.div<RightWrapProps>`
   background: ${(props) =>
       props.status == 'cancel' && 'linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),'}
     url(${(props) => props.src}) no-repeat;
-  background-size: 100%;
+  background-size: cover;
 `;
 
 const StInfoWrap = styled.div`

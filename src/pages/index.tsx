@@ -4,6 +4,7 @@ import Header from '@src/components/common/Header';
 import NftCard from '@src/components/Home/Explore/NftCard';
 import HomeTab from '@src/components/Home/HomeTab';
 import BalanceSummaryCard from '@src/components/Home/MyNft/BalanceSummaryCard';
+import MyNftCard from '@src/components/Home/MyNft/MyNftCard';
 import PendingInstallmentCard from '@src/components/Home/Purchase/PendingInstallmentCard';
 import theme from '@src/styles/theme';
 import type { NextPage } from 'next';
@@ -21,6 +22,18 @@ const Feed: NextPage = () => {
       <HomeTab />
       <StCardWrap>
         <BalanceSummaryCard costUnit={'ETH'} succeededCost={175} canceledCost={125} />
+        <MyNftCard
+          name={'NoiaDuck #494'}
+          mintingDate={'08/05/2022'}
+          src={snoopImg.src}
+          status={'done'}
+        />
+        <MyNftCard
+          name={'NoiaDuck #494'}
+          mintingDate={'08/05/2022'}
+          src={snoopImg.src}
+          status={'cancel'}
+        />
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
           monthlyPayment={'0.0102 ETH'}

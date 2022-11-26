@@ -22,7 +22,7 @@ function Purchase() {
   const installmentPrice = 0.0102;
   const downPayment = 0.1021;
   const [reset, setReset] = useState(false);
-  const [isAbled, setIsAbled] = useState(true);
+  const [isAble, setIsAble] = useState(true);
   const [installmentMonth, setInstallmentMonth] = useState(1);
   const handleSlideSuccess = () => {
     inputRef.current && (inputRef.current as any).click();
@@ -59,14 +59,14 @@ function Purchase() {
           installmentPrice={installmentPrice}
           downPayment={downPayment}
         />
-        <TotalPrice price={0.1021} isSufficient={isAbled} />
+        <TotalPrice price={0.1021} isSufficient={isAble} />
         <input type="checkbox" id="my-modal-6" className="modal-toggle bg-black" ref={inputRef} />
         <PurchaseModal setReset={setReset} />
         <SlideButton
           onSlideDone={handleSlideSuccess}
           mainText="Confirm Purchase"
           reset={reset}
-          isAbled={isAbled && installmentMonth - 1 < maxMonth}
+          isAble={isAble && installmentMonth - 1 < maxMonth}
         />
       </StMain>
     </>

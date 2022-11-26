@@ -9,8 +9,6 @@ function HomeTab() {
     'tab tab-bordered tab-active text-[16px] leading-[22px] whitespace-nowrap pb-[10px]';
   const unfocusedClass = 'tab text-[16px] leading-[22px] whitespace-nowrap pb-[10px]';
 
-  console.log('pathname', pathName.slice(1));
-
   const [focusedTab, setFocusedTab] = useState(pathName.slice(1));
 
   const setTailWindClass = (id: string) => {

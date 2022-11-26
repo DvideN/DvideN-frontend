@@ -36,8 +36,24 @@ function SaleTab() {
           monthlyPayment={'0.0102 ETH'}
           installmentMonth={8}
           collateral={'0.0011 ETH'}
+          remainingMonth={0}
+          status={'done'}
+        />
+        <PendingInstallmentCard
+          name={'NoiaDuck #494'}
+          monthlyPayment={'0.0102 ETH'}
+          installmentMonth={8}
+          collateral={'0.0011 ETH'}
           remainingMonth={2}
-          status={'pending'}
+          status={'fail'}
+        />
+        <PendingInstallmentCard
+          name={'NoiaDuck #494'}
+          monthlyPayment={'0.0102 ETH'}
+          installmentMonth={8}
+          collateral={'0.0011 ETH'}
+          remainingMonth={2}
+          status={'cancel'}
         />
       </StCardWrap>
     </>

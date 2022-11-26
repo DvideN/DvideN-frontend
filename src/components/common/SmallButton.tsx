@@ -8,19 +8,18 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 
   width: string;
-  rainbow?: boolean;
+  type?: 'black' | 'gray' | 'rainbow';
 
   [key: string]: any;
 }
 
 interface ButtonStyleProps {
   width: string;
-  rainbow?: boolean;
+  bgColor: string;
+  color: string;
 }
 
 interface ImageProps {
-  // className?: string;
-  // src: string;
   Icon: () => JSX.Element;
 
   [key: string]: any;
@@ -33,9 +32,14 @@ interface LabelProps {
   [key: string]: any;
 }
 
-function SmallButton({ children, handleClick, rainbow, ...props }: ButtonProps) {
+function SmallButton({ children, handleClick, type = 'gray', ...props }: ButtonProps) {
   return (
-    <StButton onClick={handleClick} rainbow={rainbow} {...props}>
+    <StButton
+      onClick={handleClick}
+      bgColor={GetBackgroundColor(type)}
+      color={GetFontColor(type)}
+      {...props}
+    >
       {children}
     </StButton>
   );
@@ -47,6 +51,27 @@ SmallButton.Icon = function SmallButtonIcon({ Icon }: ImageProps) {
 
 SmallButton.Label = function SmallButtonLabel({ children, ...props }: LabelProps) {
   return <p {...props}>{children}</p>;
+};
+
+const GetBackgroundColor = (btnType: 'black' | 'gray' | 'rainbow'): string => {
+  switch (btnType) {
+    case 'black':
+      return theme.colors.gray900;
+    case 'gray':
+      return theme.colors.gray100;
+    case 'rainbow':
+      return theme.colors.rainbow;
+  }
+};
+
+const GetFontColor = (btnType: 'black' | 'gray' | 'rainbow'): string => {
+  switch (btnType) {
+    case 'black':
+    case 'rainbow':
+      return theme.colors.white;
+    case 'gray':
+      return theme.colors.gray600;
+  }
 };
 
 export default SmallButton;
@@ -66,8 +91,8 @@ const StButton = styled.button<ButtonStyleProps>`
   border: 2px solid transparent;
   border-radius: 50px;
 
-  background: ${(props) => (props.rainbow ? theme.colors.rainbow : theme.colors.gray100)};
-  color: ${(props) => (props.rainbow ? theme.colors.white : theme.colors.gray800)};
+  background: ${(props) => props.bgColor};
+  color: ${(props) => props.color};
   background-origin: border-box;
   background-clip: content-box, border-box;
   animation: 2s rotate linear infinite;

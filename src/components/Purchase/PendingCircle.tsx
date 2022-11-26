@@ -12,7 +12,7 @@ interface Props {
   totalMonth: number;
   remainingMonth: number;
   src: string;
-  status: 'pending' | 'done' | 'fail';
+  status: 'pending' | 'done' | 'fail' | 'cancel';
 }
 
 interface StyleProps {
@@ -31,7 +31,19 @@ function PendingCircle({ totalMonth, remainingMonth, src, status }: Props) {
       case 'done':
         return <IcCheck className={iconStyle} />;
       case 'fail':
+      case 'cancel':
         return <IcLimited className={iconStyle} />;
+    }
+  };
+
+  const getStatusLabel = () => {
+    switch (status) {
+      case 'pending':
+        return `${remainingMonth} months left`;
+      case 'fail':
+        return 'Payment Fail';
+      case 'cancel':
+        return 'Canceled';
     }
   };
 
@@ -39,7 +51,7 @@ function PendingCircle({ totalMonth, remainingMonth, src, status }: Props) {
     <StWrap>
       <StProgressWrap src={src}>
         <StCircleWrap>
-          {status == 'fail' || (
+          {['done', 'pending'].includes(status) && (
             <CircularProgressbar
               value={percentage}
               strokeWidth={5}
@@ -54,11 +66,7 @@ function PendingCircle({ totalMonth, remainingMonth, src, status }: Props) {
           {getStatusLogo()}
         </StCircleWrap>
       </StProgressWrap>
-      {status == 'done' || (
-        <StRemainLabel>
-          {status != 'fail' ? `${remainingMonth} months left` : 'Payment Fail'}
-        </StRemainLabel>
-      )}
+      {status == 'done' || <StRemainLabel>{getStatusLabel()}</StRemainLabel>}
     </StWrap>
   );
 }

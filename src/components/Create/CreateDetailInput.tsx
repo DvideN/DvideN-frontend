@@ -6,14 +6,20 @@ import React from 'react';
 interface InputProps {
   title: string;
   unit: string;
+  value: string | number;
+  setValue: any;
 }
 
-function CreateDetailInput({ title, unit }: InputProps) {
+function CreateDetailInput({ title, unit, value, setValue }: InputProps) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
   return (
     <StWrap>
       <StTitleLabel>{title}</StTitleLabel>
       <StInputWrap>
-        <StInputField />
+        <StInputField type="number" value={value} onChange={handleChange} />
         <StUnitLabel>{unit}</StUnitLabel>
       </StInputWrap>
     </StWrap>
@@ -26,6 +32,8 @@ const StWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  width: 100%;
 `;
 
 const StTitleLabel = styled.p`
@@ -39,6 +47,8 @@ const StTitleLabel = styled.p`
 const StInputWrap = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   border-bottom: 1px solid ${theme.colors.gray300};
 
   padding-bottom: 3px;
@@ -48,6 +58,8 @@ const StInputField = styled.input`
   font-weight: 700;
   font-size: 28px;
   line-height: 38px;
+
+  width: 80%;
 
   color: ${theme.colors.gray900};
 `;

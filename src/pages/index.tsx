@@ -7,11 +7,20 @@ import BalanceSummaryCard from '@src/components/MyNft/BalanceSummaryCard';
 import MyNftCard from '@src/components/MyNft/MyNftCard';
 import PendingInstallmentCard from '@src/components/Purchase/PendingInstallmentCard';
 import theme from '@src/styles/theme';
+import { getBuyableInstallments } from '@src/utils/getBuyableInstallments';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
 const Feed: NextPage = () => {
   const ticker = 'MATIC';
+
+  const getTest = async () => {
+    const data = await getBuyableInstallments();
+
+    console.log('>>data', data);
+  };
+
+  getTest();
 
   return (
     <>

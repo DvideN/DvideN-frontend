@@ -3,6 +3,7 @@ import Header from '@src/components/common/Header';
 import HomeTab from '@src/components/common/HomeTab';
 import RoundButton from '@src/components/common/RoundButton';
 import PendingInstallmentCard from '@src/components/Purchase/PendingInstallmentCard';
+import SaleNftList from '@src/components/Purchase/SaleNftList';
 import theme from '@src/styles/theme';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -25,38 +26,7 @@ function SaleTab() {
         </RoundButton>
       </StUploadWrap>
       <StCardWrap>
-        <PendingInstallmentCard
-          name={'NoiaDuck #494'}
-          monthlyPayment={`0.0102 ${ticker}`}
-          installmentMonth={8}
-          collateral={`0.0011 ${ticker}`}
-          remainingMonth={2}
-          status={'pending'}
-        />
-        <PendingInstallmentCard
-          name={'NoiaDuck #494'}
-          monthlyPayment={`0.0102 ${ticker}`}
-          installmentMonth={8}
-          collateral={`0.0011 ${ticker}`}
-          remainingMonth={0}
-          status={'done'}
-        />
-        <PendingInstallmentCard
-          name={'NoiaDuck #494'}
-          monthlyPayment={`0.0102 ${ticker}`}
-          installmentMonth={8}
-          collateral={`0.0011 ${ticker}`}
-          remainingMonth={2}
-          status={'fail'}
-        />
-        <PendingInstallmentCard
-          name={'NoiaDuck #494'}
-          monthlyPayment={`0.0102 ${ticker}`}
-          installmentMonth={8}
-          collateral={`0.0011 ${ticker}`}
-          remainingMonth={2}
-          status={'cancel'}
-        />
+        <SaleNftList />
       </StCardWrap>
     </>
   );
@@ -80,4 +50,5 @@ const StCardWrap = styled.div`
   align-items: center;
 
   background-color: ${theme.colors.gray100};
+  min-height: calc(100vh - 223px);
 `;

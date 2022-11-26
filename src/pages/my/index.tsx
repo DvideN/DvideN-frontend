@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-import snoopImg from '@src/assets/snoop.png';
 import Header from '@src/components/common/Header';
 import HomeTab from '@src/components/common/HomeTab';
 import BalanceSummaryCard from '@src/components/MyNft/BalanceSummaryCard';
-import MyNftCard from '@src/components/MyNft/MyNftCard';
+import NftList from '@src/components/MyNft/NftList';
 import theme from '@src/styles/theme';
 import React from 'react';
 
@@ -14,18 +13,7 @@ function MyNftTab() {
       <HomeTab />
       <StCardWrap>
         <BalanceSummaryCard costUnit={'MATIC'} succeededCost={175} canceledCost={125} />
-        <MyNftCard
-          name={'NoiaDuck #494'}
-          mintingDate={'08/05/2022'}
-          src={snoopImg.src}
-          status={'done'}
-        />
-        <MyNftCard
-          name={'NoiaDuck #494'}
-          mintingDate={'08/05/2022'}
-          src={snoopImg.src}
-          status={'cancel'}
-        />
+        <NftList />
       </StCardWrap>
     </>
   );
@@ -40,6 +28,6 @@ const StCardWrap = styled.div`
   flex-direction: column;
   row-gap: 24px;
   align-items: center;
-
+  min-height: calc(100vh - 110px);
   background-color: ${theme.colors.gray100};
 `;

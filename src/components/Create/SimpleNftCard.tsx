@@ -8,15 +8,16 @@ interface CardProps {
   src: string;
   name: string;
   selected?: boolean;
+  [key: string]: any;
 }
 
 interface StyleProps {
   selected: boolean;
 }
 
-function SimpleNftCard({ src, name, selected = false }: CardProps) {
+function SimpleNftCard({ src, name, selected = false, id, ...props }: CardProps) {
   return (
-    <StWrap>
+    <StWrap {...props} id={id}>
       <StImageWrap selected={selected}>
         <Image
           src={src}
@@ -25,6 +26,7 @@ function SimpleNftCard({ src, name, selected = false }: CardProps) {
           objectFit="cover"
           blurDataURL={src}
           placeholder="blur"
+          unoptimized={true}
         />
       </StImageWrap>
       <StNameLabel>{name}</StNameLabel>
@@ -34,7 +36,7 @@ function SimpleNftCard({ src, name, selected = false }: CardProps) {
 
 export default SimpleNftCard;
 
-const StWrap = styled.div`
+const StWrap = styled.div<CardProps>`
   display: flex;
   flex-direction: column;
   align-items: center;

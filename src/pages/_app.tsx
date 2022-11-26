@@ -6,12 +6,15 @@ import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import useRainbowKit from '@src/hooks/useRainbowKit';
 import { global } from '@src/styles/global';
 import theme from '@src/styles/theme';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { useState } from 'react';
 import { WagmiConfig } from 'wagmi';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { wagmiClient, chains } = useRainbowKit();
+  const [queryClient] = useState(() => new QueryClient());
 
   return (
     <>
@@ -27,7 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <WagmiConfig client={wagmiClient}>
           <RainbowKitProvider chains={chains} coolMode={true}>
-            <Component {...pageProps} />
+            <QueryClientProvider client={queryClient}>
+              <Component {...pageProps} />
+            </QueryClientProvider>
           </RainbowKitProvider>
         </WagmiConfig>
       </ThemeProvider>

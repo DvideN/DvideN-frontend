@@ -4,6 +4,7 @@ import IcTransaction from '@src/assets/IcTransaction.svg';
 // import SnoopImage from '@src/assets/snoop.png';
 import NftNameLabel from '@src/components/common/NftNameLabel';
 import SmallButton from '@src/components/common/SmallButton';
+import SuccessModal from '@src/components/common/SuccessModal';
 import PendingCircle from '@src/components/Purchase/PendingCircle';
 import UnlockNftModal from '@src/components/Purchase/UnlockNftModal';
 import theme from '@src/styles/theme';

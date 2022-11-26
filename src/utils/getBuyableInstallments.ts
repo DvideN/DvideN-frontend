@@ -9,5 +9,7 @@ export const getBuyableInstallments = async () => {
     contractAddress: DivideNInstallmentAddress,
   });
 
+  console.log('purchaseContract', purchaseContract);
+
   return await purchaseContract.getBuyableInstallments();
 };

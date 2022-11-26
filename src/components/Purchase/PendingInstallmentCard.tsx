@@ -32,17 +32,17 @@ function PendingInstallmentCard(props: CardProps) {
           </StInfoLabel>
         </StInfoWrap>
         <StButtonWrap>
-          <SmallButton width={'180px'}>
+          <SmallButton width={'184px'}>
             <SmallButton.Icon Icon={IcCollateral} />
             <SmallButton.Label>See Money Streaming</SmallButton.Label>
           </SmallButton>
-          <SmallButton width={'146px'}>
+          <SmallButton width={'150px'}>
             <SmallButton.Icon Icon={IcTransaction} />
             <SmallButton.Label>See Transaction</SmallButton.Label>
           </SmallButton>
         </StButtonWrap>
         {props.status == 'done' && (
-          <SmallButton width={'95px'} rainbow={true}>
+          <SmallButton width={'99px'} rainbow={true}>
             <SmallButton.Label>Unlock NFT</SmallButton.Label>
           </SmallButton>
         )}

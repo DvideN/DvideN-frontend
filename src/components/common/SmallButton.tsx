@@ -58,7 +58,7 @@ const StButton = styled.button<ButtonStyleProps>`
   column-gap: 8px;
 
   width: ${(props) => props.width};
-  height: 30px;
+  height: 34px;
 
   font-weight: 700;
   font-size: 13px;

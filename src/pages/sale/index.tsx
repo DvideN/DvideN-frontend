@@ -17,6 +17,7 @@ function SaleTab() {
           installmentMonth={8}
           collateral={'0.0011 ETH'}
           remainingMonth={2}
+          status={'pending'}
         />
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
@@ -24,6 +25,7 @@ function SaleTab() {
           installmentMonth={8}
           collateral={'0.0011 ETH'}
           remainingMonth={2}
+          status={'pending'}
         />
       </StCardWrap>
     </>

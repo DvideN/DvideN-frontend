@@ -8,7 +8,7 @@ interface PurchaseModalProps {
 
 function PurchaseModal({ setReset }: PurchaseModalProps) {
   const handleClick = () => {
-    setReset((prev) => !prev);
+    setReset(true);
   };
 
   return (

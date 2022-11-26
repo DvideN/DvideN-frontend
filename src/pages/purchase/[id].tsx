@@ -26,7 +26,7 @@ function Purchase() {
   const [installmentMonth, setInstallmentMonth] = useState(1);
   const handleSlideSuccess = () => {
     inputRef.current && (inputRef.current as any).click();
-    setReset((prev) => !prev);
+    setReset(false);
   };
 
   const addresss = '0xA0DDd71bbd9e807AbB52ceeD0EBc5426957Db2fc';

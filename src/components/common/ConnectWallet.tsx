@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { useAccountModal, useConnectModal } from '@rainbow-me/rainbowkit';
 import theme from '@src/styles/theme';
+import { getSliceAddress } from '@src/utils/string';
 import { useEffect } from 'react';
 import { useAccount } from 'wagmi';
 
@@ -13,7 +14,7 @@ function ConnectWallet() {
     <>
       {isConnected ? (
         <StAddressBtn onClick={openAccountModal} type="button">
-          {`${address?.slice(0, 3)}...${address?.slice(-3)}`}
+          {getSliceAddress(3, address)}
         </StAddressBtn>
       ) : (
         <StAddressBtn onClick={openConnectModal} type="button">

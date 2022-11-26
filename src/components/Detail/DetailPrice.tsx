@@ -15,7 +15,7 @@ function DetailPrice({ title, price, duration }: DetailProps) {
     <StWrap>
       <StTitleLabel>{title}</StTitleLabel>
       <StPriceWrap>
-        <Image src={EthereumLogo} />
+        <Image src={EthereumLogo} alt="eth icon" />
         <StPriceLabel>{price}</StPriceLabel>
         {duration && <StDurationLabel>/ {duration}</StDurationLabel>}
       </StPriceWrap>

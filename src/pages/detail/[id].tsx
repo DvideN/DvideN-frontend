@@ -21,7 +21,14 @@ function Detail() {
       <Header />
       <StRoot>
         <div style={{ width: '100%', height: '483px', position: 'relative' }}>
-          <Image src={snoopImage} layout="fill" objectFit="cover" />
+          <Image
+            src={snoopImage}
+            layout="fill"
+            alt="nft"
+            objectFit="cover"
+            blurDataURL={snoopImage.src}
+            placeholder="blur"
+          />
         </div>
         <DetailName name="NoiaDuck #494" account="0x123...456" />
         <StPriceWrap>

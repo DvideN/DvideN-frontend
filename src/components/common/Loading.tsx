@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import mainLogo from '@src/assets/mainLogo.gif';
-import Image from 'next/image';
+import LoadingIcon from '@src/assets/mainLogo.svg';
+// import mainLogo from '@src/assets/mainLogo.gif';
+// import Image from 'next/image';
 import React from 'react';
 interface LoadingProps {
   isIcon?: boolean;
@@ -34,15 +35,15 @@ function Loading({ isIcon = true, width = '150px', height = '150px' }: LoadingPr
       </svg>
       {isIcon && (
         <StImgWrapper>
-          <Image
+          {/* <Image
             src={mainLogo.src}
             alt="divideN logo"
             width={75}
             height={92}
             blurDataURL={mainLogo.src}
             placeholder="blur"
-          />
-          {/* <LoadingIcon /> */}
+          /> */}
+          <LoadingIcon />
         </StImgWrapper>
       )}
     </StRoot>

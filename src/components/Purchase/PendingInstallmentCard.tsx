@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import IcCollateral from '@src/assets/IcCollateral.svg';
 import IcTransaction from '@src/assets/IcTransaction.svg';
-import SnoopImage from '@src/assets/snoop.png';
+// import SnoopImage from '@src/assets/snoop.png';
 import NftNameLabel from '@src/components/common/NftNameLabel';
 import SmallButton from '@src/components/common/SmallButton';
 import PendingCircle from '@src/components/Purchase/PendingCircle';
@@ -16,6 +16,7 @@ interface CardProps {
   collateral: string;
   remainingMonth: number;
   status: 'pending' | 'done' | 'fail' | 'cancel';
+  src: string;
 }
 
 function PendingInstallmentCard(props: CardProps) {
@@ -58,7 +59,7 @@ function PendingInstallmentCard(props: CardProps) {
       </StLeftWrap>
       <StRightWrap>
         <PendingCircle
-          src={SnoopImage.src}
+          src={props.src}
           totalMonth={props.installmentMonth}
           remainingMonth={props.remainingMonth}
           status={props.status}

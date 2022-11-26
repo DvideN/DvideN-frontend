@@ -1,5 +1,6 @@
 import { DivideNInstallmentAddress } from '@src/constants/contract';
 import { DivideNInstallment } from '@src/lib/DivideNInstallment';
+import { ERC721abi } from '@src/lib/ERC721abi';
 
 import { getContract } from './contract';
 
@@ -14,7 +15,7 @@ interface registerInstallmentProps {
 
 export const setApproveAll = async (nftAddress: string, ownerAddress: string) => {
   const purchaseContract = getContract({
-    abi: DivideNInstallment.abi,
+    abi: ERC721abi.abi,
     contractAddress: DivideNInstallmentAddress,
   });
 

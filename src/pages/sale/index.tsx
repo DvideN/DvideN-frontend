@@ -4,15 +4,21 @@ import HomeTab from '@src/components/common/HomeTab';
 import RoundButton from '@src/components/common/RoundButton';
 import PendingInstallmentCard from '@src/components/Purchase/PendingInstallmentCard';
 import theme from '@src/styles/theme';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 function SaleTab() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/create');
+  };
+
   return (
     <>
       <Header />
       <HomeTab />
       <StUploadWrap>
-        <RoundButton width={'165px'} height={'57px'}>
+        <RoundButton width={'165px'} height={'57px'} onClick={handleClick}>
           Upload
         </RoundButton>
       </StUploadWrap>

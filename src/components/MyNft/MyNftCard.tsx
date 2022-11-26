@@ -35,7 +35,7 @@ function MyNftCard({ name, mintingDate, src, status }: CardProps) {
           )}
         </StInfoWrap>
         <StButtonWrap>
-          <SmallButton width={'184px'}>
+          <SmallButton width={'146px'}>
             <SmallButton.Icon Icon={IcTransaction} />
             <SmallButton.Label>See Transaction</SmallButton.Label>
           </SmallButton>

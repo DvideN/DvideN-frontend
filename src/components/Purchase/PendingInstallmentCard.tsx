@@ -6,6 +6,7 @@ import NftNameLabel from '@src/components/common/NftNameLabel';
 import SmallButton from '@src/components/common/SmallButton';
 import PendingCircle from '@src/components/Purchase/PendingCircle';
 import theme from '@src/styles/theme';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 interface CardProps {
@@ -14,10 +15,13 @@ interface CardProps {
   installmentMonth: number;
   collateral: string;
   remainingMonth: number;
-  status: 'pending' | 'done' | 'fail';
+  status: 'pending' | 'done' | 'fail' | 'cancel';
 }
 
 function PendingInstallmentCard(props: CardProps) {
+  const router = useRouter();
+  const actionType = router.pathname.slice(1);
+
   return (
     <StWrap>
       <StLeftWrap>
@@ -41,9 +45,14 @@ function PendingInstallmentCard(props: CardProps) {
             <SmallButton.Label>See Transaction</SmallButton.Label>
           </SmallButton>
         </StButtonWrap>
-        {props.status == 'done' && (
-          <SmallButton width={'99px'} rainbow={true}>
+        {props.status == 'done' && actionType == 'purchase' && (
+          <SmallButton width={'103px'} type={'rainbow'}>
             <SmallButton.Label>Unlock NFT</SmallButton.Label>
+          </SmallButton>
+        )}
+        {props.status == 'cancel' && actionType == 'sale' && (
+          <SmallButton width={'99px'} type={'black'}>
+            <SmallButton.Label>Retrieve NFT</SmallButton.Label>
           </SmallButton>
         )}
       </StLeftWrap>

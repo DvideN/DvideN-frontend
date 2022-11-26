@@ -29,7 +29,7 @@ function Purchase() {
     setReset(false);
   };
 
-  const addresss = '0xA0DDd71bbd9e807AbB52ceeD0EBc5426957Db2fc';
+  const addresss = '0xCC0174124b8A26a7f216639E6c6A26bd645d6761';
 
   const inputRef = useRef(null);
 
@@ -49,17 +49,17 @@ function Purchase() {
             objectFit="cover"
           />
         </StImageWrapper>
-        <StSubTitle>NoiaDuck #494</StSubTitle>
+        <StSubTitle>NoiaDuck</StSubTitle>
         <StDescription>{getSliceAddress(3, addresss)}</StDescription>
         <Notice />
         <PurchaseForm
           installmentMonth={installmentMonth}
           setInstallmentMonth={setInstallmentMonth}
           maxMonth={maxMonth}
-          installmentPrice={installmentPrice}
-          downPayment={downPayment}
+          installmentPrice={291.6}
+          downPayment={300}
         />
-        <TotalPrice price={0.1021} isSufficient={isAble} />
+        <TotalPrice price={3500} isSufficient={isAble} />
         <input type="checkbox" id="my-modal-6" className="modal-toggle bg-black" ref={inputRef} />
         <PurchaseModal setReset={setReset} />
         <SlideButton

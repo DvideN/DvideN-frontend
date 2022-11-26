@@ -67,7 +67,7 @@ const Transfer = ({ currentType, setCurrentType }: stageProps) => {
     setTimeout(() => {
       setIsSuccess(true);
       setCurrentType(getNextTxStep('transfer'));
-      router.push('/');
+      router.push('/purchase');
     }, 500);
   };
 
@@ -75,11 +75,16 @@ const Transfer = ({ currentType, setCurrentType }: stageProps) => {
     <StRoot>
       <StSubTitle>{PURCHASE_MODAL_SUBTITLE['TRANSFER']}</StSubTitle>
       {isSuccess ? (
-        <RoundButton width={'80%'} height={'65px'} onClick={handleClick}>
+        <RoundButton width={'80%'} height={'65px'} styleType="success">
           Done! 🎉
         </RoundButton>
       ) : (
-        <RoundButton width={'80%'} height={'65px'} disabled={currentType !== 'transfer'}>
+        <RoundButton
+          width={'80%'}
+          height={'65px'}
+          disabled={currentType !== 'transfer'}
+          onClick={handleClick}
+        >
           Sign
         </RoundButton>
       )}
@@ -101,7 +106,7 @@ const Collateral = ({ currentType, setCurrentType }: stageProps) => {
     <StRoot>
       <StSubTitle>{PURCHASE_MODAL_SUBTITLE['COLLATERAL']}</StSubTitle>
       {isSuccess ? (
-        <RoundButton width={'80%'} height={'65px'}>
+        <RoundButton width={'80%'} height={'65px'} styleType="success">
           Done! 🎉
         </RoundButton>
       ) : (
@@ -132,7 +137,7 @@ const Wrapping = ({ currentType, setCurrentType }: stageProps) => {
     <StRoot>
       <StSubTitle>{PURCHASE_MODAL_SUBTITLE['WRAPPING']}</StSubTitle>
       {isSuccess ? (
-        <RoundButton width={'80%'} height={'65px'}>
+        <RoundButton width={'80%'} height={'65px'} styleType="success">
           Done! 🎉
         </RoundButton>
       ) : (

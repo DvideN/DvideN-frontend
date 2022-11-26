@@ -38,8 +38,6 @@ const StCardWrap = styled.div`
   flex-direction: column;
   row-gap: 24px;
   align-items: center;
-
-  background-color: ${theme.colors.gray100};
 `;
 
 const StComingSoonLabel = styled.p`

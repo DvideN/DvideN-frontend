@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import Header from '@src/components/common/Header';
 import HomeTab from '@src/components/common/HomeTab';
+import RoundButton from '@src/components/common/RoundButton';
 import PendingInstallmentCard from '@src/components/Purchase/PendingInstallmentCard';
 import theme from '@src/styles/theme';
 import React from 'react';
@@ -10,6 +11,11 @@ function SaleTab() {
     <>
       <Header />
       <HomeTab />
+      <StUploadWrap>
+        <RoundButton width={'165px'} height={'57px'}>
+          Upload
+        </RoundButton>
+      </StUploadWrap>
       <StCardWrap>
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
@@ -33,6 +39,13 @@ function SaleTab() {
 }
 
 export default SaleTab;
+
+const StUploadWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 113px;
+`;
 
 const StCardWrap = styled.div`
   padding: 24px 13px;

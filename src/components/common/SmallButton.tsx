@@ -70,7 +70,7 @@ const GetFontColor = (btnType: 'black' | 'gray' | 'rainbow'): string => {
     case 'rainbow':
       return theme.colors.white;
     case 'gray':
-      return theme.colors.gray800;
+      return theme.colors.gray600;
   }
 };
 

@@ -32,15 +32,20 @@ function PendingInstallmentCard(props: CardProps) {
           </StInfoLabel>
         </StInfoWrap>
         <StButtonWrap>
-          <SmallButton>
+          <SmallButton width={'180px'}>
             <SmallButton.Icon Icon={IcCollateral} />
             <SmallButton.Label>See Money Streaming</SmallButton.Label>
           </SmallButton>
-          <SmallButton>
+          <SmallButton width={'146px'}>
             <SmallButton.Icon Icon={IcTransaction} />
             <SmallButton.Label>See Transaction</SmallButton.Label>
           </SmallButton>
         </StButtonWrap>
+        {props.status == 'done' && (
+          <SmallButton width={'95px'} rainbow={true}>
+            <SmallButton.Label>Unlock NFT</SmallButton.Label>
+          </SmallButton>
+        )}
       </StLeftWrap>
       <StRightWrap>
         <PendingCircle
@@ -71,6 +76,7 @@ const StWrap = styled.div`
 const StLeftWrap = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   row-gap: 20px;
 `;
 

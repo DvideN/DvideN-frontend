@@ -16,6 +16,10 @@ function Detail() {
     query: { id },
   } = router;
 
+  const handleClick = () => {
+    router.push(`/purchase/${id}`);
+  };
+
   return (
     <>
       <Header />
@@ -36,7 +40,7 @@ function Detail() {
           <DetailPrice title="Installment Price" price="0.0121 ETH" duration="1 month" />
         </StPriceWrap>
         <DetailInstallment month="12 months" collateral="0.0011 ETH" percent={30} />
-        <RoundButton width="82.7%" height="65px" styleType="rainbow">
+        <RoundButton width="82.7%" height="65px" styleType="rainbow" onClick={handleClick}>
           Purchase
         </RoundButton>
       </StRoot>

@@ -160,6 +160,7 @@ const StRoot = styled.div<disabledStyleProps>`
   border-radius: 100px;
   height: 63px;
   width: 90%;
+  margin-top: 32px;
 `;
 
 const StRailWrapper = styled.div<overlayStyleProps>`

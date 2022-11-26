@@ -22,3 +22,9 @@ export const NOTICE = {
   DESCRIPTION:
     'NFT will refund if the balance insufficient to pay installment price at monthly payment date.',
 };
+
+export const PURCHASE_OPTION = {
+  INSTALLMENT_MONTH: 'Installment Month',
+  INSTALLMENT_PRICE: 'Installment Price',
+  DOWN_PAYMENT: 'Down payment',
+};

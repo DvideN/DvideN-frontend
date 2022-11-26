@@ -8,12 +8,17 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 function SaleTab() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/create');
+  };
+
   return (
     <>
       <Header />
       <HomeTab />
       <StUploadWrap>
-        <RoundButton width={'165px'} height={'57px'}>
+        <RoundButton width={'165px'} height={'57px'} onClick={handleClick}>
           Upload
         </RoundButton>
       </StUploadWrap>

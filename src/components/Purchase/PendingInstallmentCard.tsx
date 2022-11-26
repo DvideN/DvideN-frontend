@@ -14,6 +14,7 @@ interface CardProps {
   installmentMonth: number;
   collateral: string;
   remainingMonth: number;
+  status: 'pending' | 'done' | 'fail';
 }
 
 function PendingInstallmentCard(props: CardProps) {
@@ -33,7 +34,7 @@ function PendingInstallmentCard(props: CardProps) {
         <StButtonWrap>
           <SmallButton>
             <SmallButton.Icon Icon={IcCollateral} />
-            <SmallButton.Label>See Collateral</SmallButton.Label>
+            <SmallButton.Label>See Money Streaming</SmallButton.Label>
           </SmallButton>
           <SmallButton>
             <SmallButton.Icon Icon={IcTransaction} />
@@ -42,7 +43,12 @@ function PendingInstallmentCard(props: CardProps) {
         </StButtonWrap>
       </StLeftWrap>
       <StRightWrap>
-        <PendingCircle src={SnoopImage.src} totalMonth={8} remainingMonth={2} />
+        <PendingCircle
+          src={SnoopImage.src}
+          totalMonth={props.installmentMonth}
+          remainingMonth={props.remainingMonth}
+          status={props.status}
+        />
       </StRightWrap>
     </StWrap>
   );

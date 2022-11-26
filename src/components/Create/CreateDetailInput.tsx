@@ -6,14 +6,20 @@ import React from 'react';
 interface InputProps {
   title: string;
   unit: string;
+  value: string | number;
+  setValue: any;
 }
 
-function CreateDetailInput({ title, unit }: InputProps) {
+function CreateDetailInput({ title, unit, value, setValue }: InputProps) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
   return (
     <StWrap>
       <StTitleLabel>{title}</StTitleLabel>
       <StInputWrap>
-        <StInputField />
+        <StInputField value={value} onChange={handleChange} />
         <StUnitLabel>{unit}</StUnitLabel>
       </StInputWrap>
     </StWrap>

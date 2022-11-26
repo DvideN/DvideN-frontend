@@ -2,10 +2,12 @@ import styled from '@emotion/styled';
 import theme from '@src/styles/theme';
 import Image from 'next/image';
 import React from 'react';
+
 interface CreateSaleProps {
   imageUrl: any;
-  name: string;
+  name?: string;
 }
+
 function CreateSale({ imageUrl, name }: CreateSaleProps) {
   return (
     <>

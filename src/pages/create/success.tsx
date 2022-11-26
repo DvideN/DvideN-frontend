@@ -3,6 +3,7 @@ import Header from '@src/components/common/Header';
 import RoundButton from '@src/components/common/RoundButton';
 import theme from '@src/styles/theme';
 import React, { useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 
 function Success() {
   const confettiWrap = useRef(null);
@@ -15,6 +16,12 @@ function Success() {
     }
   }, []);
 
+  const router = useRouter();
+  const id = localStorage.getItem('id');
+  const handleClick = () => {
+    router.push(`/detail/${id}`);
+  };
+
   return (
     <>
       <Header />
@@ -24,7 +31,7 @@ function Success() {
           <br />
           Uploaded!
         </StSuccessLabel>
-        <RoundButton width={'208px'} height={'65px'}>
+        <RoundButton width={'208px'} height={'65px'} onClick={handleClick}>
           See Details
         </RoundButton>
       </StWrap>

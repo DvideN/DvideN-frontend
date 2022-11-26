@@ -1,20 +1,40 @@
 import styled from '@emotion/styled';
 import snoopImage from '@src/assets/snoop.png';
+import CommonError from '@src/components/common/CommonError';
+import ErrorBoundary from '@src/components/common/ErrorBoundary';
 import Header from '@src/components/common/Header';
+import Loading from '@src/components/common/Loading';
 import SlideButton from '@src/components/common/SlideButton';
+import SSRSafeSuspense from '@src/components/common/SSRSafeSuspense';
 import CreateDetailInput from '@src/components/Create/CreateDetailInput';
+import CreateSale from '@src/components/Create/CreateSale';
 import theme from '@src/styles/theme';
-import Image from 'next/image';
+import { getDataFromTokenId } from '@src/utils/getDataFromTokenId';
+import { QueryClient, useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 
-interface DetailProps {
-  src: string;
-  name: string;
+function CreateDetail() {
+  return (
+    <ErrorBoundary
+      renderFallback={({ error, reset }) => <CommonError error={error} reset={reset} />}
+    >
+      <SSRSafeSuspense
+        fallback={
+          <div className="w-[100%] ml-[50%]">
+            <Loading isIcon={true} />
+          </div>
+        }
+      >
+        <Resolved />
+      </SSRSafeSuspense>
+    </ErrorBoundary>
+  );
 }
 
-function CreateDetail({ src, name }: DetailProps) {
+const Resolved = () => {
   const router = useRouter();
+  const { query } = router;
 
   const [price, setPrice] = useState('');
   const [downPaymentRate, setDownPaymentRate] = useState('');
@@ -25,10 +45,7 @@ function CreateDetail({ src, name }: DetailProps) {
       <Header />
       <StWrap>
         <StTitleLabel>Enter Details</StTitleLabel>
-        <StImageWrap>
-          <Image src={snoopImage} alt={'nft'} layout={'fill'} objectFit={'cover'} />
-        </StImageWrap>
-        <StNameLabel>{'NoiaDuck #494'}</StNameLabel>
+        {query?.imageUrl && <CreateSale imageUrl={query?.imageUrl} name={query?.name} />}
         <StInputWrap>
           <CreateDetailInput title={'Price'} unit={'MATIC'} value={price} setValue={setPrice} />
           <CreateDetailInput
@@ -54,7 +71,7 @@ function CreateDetail({ src, name }: DetailProps) {
       </StWrap>
     </>
   );
-}
+};
 
 export default CreateDetail;
 
@@ -77,24 +94,24 @@ const StTitleLabel = styled.p`
   margin: 48px 0;
 `;
 
-const StImageWrap = styled.div`
-  width: 89.3%;
-  aspect-ratio: 335 / 348;
-  position: relative;
+// const StImageWrap = styled.div`
+//   width: 89.3%;
+//   aspect-ratio: 335 / 348;
+//   position: relative;
 
-  border-radius: 8px;
-  overflow: hidden;
-`;
+//   border-radius: 8px;
+//   overflow: hidden;
+// `;
 
-const StNameLabel = styled.p`
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
+// const StNameLabel = styled.p`
+//   font-weight: 700;
+//   font-size: 18px;
+//   line-height: 25px;
 
-  color: ${theme.colors.gray600};
+//   color: ${theme.colors.gray600};
 
-  margin-top: 16px;
-`;
+//   margin-top: 16px;
+// `;
 
 const StInputWrap = styled.div`
   display: flex;

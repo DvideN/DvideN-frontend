@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', '*'],
-    hostname: 'img.nftically.com',
+    domains: ['localhost', '*', 'img.nftically.com'],
+    hostname: ['img.nftically.com'],
   },
 };
 

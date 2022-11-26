@@ -33,7 +33,7 @@ function CreateCardList({ setRoutingId }: CreateCardListProps) {
 }
 
 const Resolved = ({ setRoutingId }: CreateCardListProps) => {
-  const { data } = useQuery(['my_nft'], () => getMyNft(), {
+  const { data } = useQuery(['create_nft_list'], () => getMyNft(), {
     suspense: true,
   });
   const [currentId, setCurrentId] = useState(data.data[0].tokenId);

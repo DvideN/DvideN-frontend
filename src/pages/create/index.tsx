@@ -4,14 +4,20 @@ import Header from '@src/components/common/Header';
 import RoundButton from '@src/components/common/RoundButton';
 import CreateCardList from '@src/components/Create/CreateCardList';
 import SimpleNftCard from '@src/components/Create/SimpleNftCard';
+import { getDataFromTokenId } from '@src/utils/getDataFromTokenId';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 function CreateSelect() {
   const router = useRouter();
   const [routingId, setRoutingId] = useState('');
+  const data = getDataFromTokenId(routingId);
   const handleClick = () => {
-    router.push(`create/${routingId}`);
+    // router.push(`create/${routingId}`);
+    router.push({
+      pathname: `create/${routingId}`,
+      query: { imageUrl: data.imageUrl, name: data.name },
+    });
   };
 
   return (

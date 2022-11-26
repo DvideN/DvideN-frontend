@@ -35,14 +35,6 @@ function Loading({ isIcon = true, width = '150px', height = '150px' }: LoadingPr
       </svg>
       {isIcon && (
         <StImgWrapper>
-          {/* <Image
-            src={mainLogo.src}
-            alt="divideN logo"
-            width={75}
-            height={92}
-            blurDataURL={mainLogo.src}
-            placeholder="blur"
-          /> */}
           <LoadingIcon />
         </StImgWrapper>
       )}

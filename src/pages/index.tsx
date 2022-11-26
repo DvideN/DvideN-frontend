@@ -6,10 +6,12 @@ import NftCard from '@src/components/Explore/NftCard';
 import BalanceSummaryCard from '@src/components/MyNft/BalanceSummaryCard';
 import MyNftCard from '@src/components/MyNft/MyNftCard';
 import PendingInstallmentCard from '@src/components/Purchase/PendingInstallmentCard';
+import UnlockNftModal from '@src/components/Purchase/UnlockNftModal';
 import theme from '@src/styles/theme';
 import { getBuyableInstallments } from '@src/utils/getBuyableInstallments';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import React, { useRef } from 'react';
 
 const Feed: NextPage = () => {
   const ticker = 'MATIC';

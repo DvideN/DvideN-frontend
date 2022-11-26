@@ -5,9 +5,10 @@ import IcTransaction from '@src/assets/IcTransaction.svg';
 import NftNameLabel from '@src/components/common/NftNameLabel';
 import SmallButton from '@src/components/common/SmallButton';
 import PendingCircle from '@src/components/Purchase/PendingCircle';
+import UnlockNftModal from '@src/components/Purchase/UnlockNftModal';
 import theme from '@src/styles/theme';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useRef } from 'react';
 
 interface CardProps {
   name: string;
@@ -22,6 +23,11 @@ interface CardProps {
 function PendingInstallmentCard(props: CardProps) {
   const router = useRouter();
   const actionType = router.pathname.slice(1);
+
+  const inputRef = useRef(null);
+  const handleClick = () => {
+    inputRef.current && (inputRef.current as any).click();
+  };
 
   return (
     <StWrap>
@@ -47,9 +53,18 @@ function PendingInstallmentCard(props: CardProps) {
           </SmallButton>
         </StButtonWrap>
         {props.status == 'done' && actionType == 'purchase' && (
-          <SmallButton width={'103px'} type={'rainbow'}>
-            <SmallButton.Label>Unlock NFT</SmallButton.Label>
-          </SmallButton>
+          <>
+            <SmallButton width={'103px'} type={'rainbow'} onClick={handleClick}>
+              <SmallButton.Label>Unlock NFT</SmallButton.Label>
+            </SmallButton>
+            <input
+              type="checkbox"
+              id="my-modal-6"
+              className="modal-toggle bg-black"
+              ref={inputRef}
+            />
+            <UnlockNftModal />
+          </>
         )}
         {props.status == 'cancel' && actionType == 'sale' && (
           <SmallButton width={'99px'} type={'black'}>

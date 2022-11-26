@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 import logoImg from '@src/assets/logo.png';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import React from 'react';
-
-import ConnectWallet from './ConnectWallet';
+const ConnectWallet = dynamic(() => import('@src/components/common/ConnectWallet'), {
+  ssr: false,
+});
 
 interface StLogoBtnProps {
   src: string;

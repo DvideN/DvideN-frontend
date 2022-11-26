@@ -62,4 +62,5 @@ const StCardWrap = styled.div`
   align-items: center;
 
   background-color: ${theme.colors.gray100};
+  min-height: calc(100vh - 223px);
 `;

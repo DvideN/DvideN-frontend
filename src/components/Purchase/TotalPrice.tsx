@@ -10,7 +10,7 @@ interface TotalPriceProps {
 }
 
 const totalPrice = 'Total Price';
-const ticker = 'ETH';
+const ticker = 'MATIC';
 const insufficientMessage = 'Insufficient balance';
 
 function TotalPrice({ price, isSufficient = true }: TotalPriceProps) {
@@ -75,6 +75,7 @@ const StNoticeLabel = styled.label`
   /* position: absolute; */
   display: flex;
   margin-top: 7px;
+
   & p {
     display: flex;
     font-family: 'Nunito';

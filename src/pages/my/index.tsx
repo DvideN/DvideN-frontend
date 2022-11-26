@@ -13,7 +13,7 @@ function MyNftTab() {
       <Header />
       <HomeTab />
       <StCardWrap>
-        <BalanceSummaryCard costUnit={'ETH'} succeededCost={175} canceledCost={125} />
+        <BalanceSummaryCard costUnit={'MATIC'} succeededCost={175} canceledCost={125} />
         <MyNftCard
           name={'NoiaDuck #494'}
           mintingDate={'08/05/2022'}

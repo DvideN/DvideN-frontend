@@ -13,6 +13,8 @@ function SaleTab() {
     router.push('/create');
   };
 
+  const ticker = 'MATIC';
+
   return (
     <>
       <Header />
@@ -25,33 +27,33 @@ function SaleTab() {
       <StCardWrap>
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
+          monthlyPayment={`0.0102 ${ticker}`}
           installmentMonth={8}
-          collateral={'0.0011 ETH'}
+          collateral={`0.0011 ${ticker}`}
           remainingMonth={2}
           status={'pending'}
         />
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
+          monthlyPayment={`0.0102 ${ticker}`}
           installmentMonth={8}
-          collateral={'0.0011 ETH'}
+          collateral={`0.0011 ${ticker}`}
           remainingMonth={0}
           status={'done'}
         />
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
+          monthlyPayment={`0.0102 ${ticker}`}
           installmentMonth={8}
-          collateral={'0.0011 ETH'}
+          collateral={`0.0011 ${ticker}`}
           remainingMonth={2}
           status={'fail'}
         />
         <PendingInstallmentCard
           name={'NoiaDuck #494'}
-          monthlyPayment={'0.0102 ETH'}
+          monthlyPayment={`0.0102 ${ticker}`}
           installmentMonth={8}
-          collateral={'0.0011 ETH'}
+          collateral={`0.0011 ${ticker}`}
           remainingMonth={2}
           status={'cancel'}
         />

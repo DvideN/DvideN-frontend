@@ -38,10 +38,10 @@ function Detail() {
         </div>
         <DetailName name="NoiaDuck #494" account="0x123...456" />
         <StPriceWrap>
-          <DetailPrice title="Total Price" price={`0.1021 ${ticker}`} />
-          <DetailPrice title="Installment Price" price={`0.0121 ${ticker}`} duration="1 month" />
+          <DetailPrice title="Total Price" price={`3500 ${ticker}`} />
+          <DetailPrice title="Installment Price" price={`291.66 ${ticker}`} duration="1 month" />
         </StPriceWrap>
-        <DetailInstallment month="12 months" collateral={`0.0011 ${ticker}`} percent={30} />
+        <DetailInstallment month="12 months" collateral={`300 ${ticker}`} percent={10} />
         <RoundButton width="82.7%" height="65px" styleType="rainbow" onClick={handleClick}>
           Purchase
         </RoundButton>

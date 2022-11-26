@@ -3,6 +3,7 @@ import snoopImg from '@src/assets/snoop.png';
 import Header from '@src/components/common/Header';
 import HomeTab from '@src/components/common/HomeTab';
 import NftCard from '@src/components/Explore/NftCard';
+import MainNftList from '@src/components/Main/MainNftList';
 import BalanceSummaryCard from '@src/components/MyNft/BalanceSummaryCard';
 import MyNftCard from '@src/components/MyNft/MyNftCard';
 import PendingInstallmentCard from '@src/components/Purchase/PendingInstallmentCard';
@@ -34,8 +35,9 @@ const Feed: NextPage = () => {
       <Header />
       <HomeTab />
       <StCardWrap>
-        <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price={`0.1021 ${ticker}`} />
-        <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price={`0.1021 ${ticker}`} />
+        {/* <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price={`0.1021 ${ticker}`} />
+        <NftCard id={0} imgSrc={snoopImg.src} name="NoiaDuck #494" price={`0.1021 ${ticker}`} /> */}
+        <MainNftList />
         <StComingSoonLabel>Coming soon :)</StComingSoonLabel>
       </StCardWrap>
     </>

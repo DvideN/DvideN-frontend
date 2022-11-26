@@ -9,6 +9,9 @@ import React, { useState } from 'react';
 
 import Loading from '../common/Loading';
 import RoundButton from '../common/RoundButton';
+import { useQuery } from '@tanstack/react-query';
+import { getMyNft } from '@src/utils/getMyNft';
+import { getNextTxStep } from '@src/utils/getNextTxStep';
 
 interface stageProps {
   currentType: TransactionType;
@@ -52,14 +55,18 @@ const Resolved = () => {
 };
 
 const Transfer = ({ currentType, setCurrentType }: stageProps) => {
+  // const { data, isSuccess } = useQuery(['test1'], () => getMyNft(), {
+  //   suspense: true,
+  // });
   // use reactquery + getNextTxStep utils
   const isSuccess = false;
+  const handleClick = () => {};
 
   return (
     <StRoot>
       <StSubTitle>{PURCHASE_MODAL_SUBTITLE['TRANSFER']}</StSubTitle>
       {isSuccess ? (
-        <RoundButton width={'80%'} height={'65px'}>
+        <RoundButton width={'80%'} height={'65px'} onClick={handleClick}>
           Done! 🎉
         </RoundButton>
       ) : (
@@ -72,7 +79,14 @@ const Transfer = ({ currentType, setCurrentType }: stageProps) => {
 };
 const Collateral = ({ currentType, setCurrentType }: stageProps) => {
   // use reactquery + getNextTxStep utils
-  const isSuccess = false;
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleClick = () => {
+    setTimeout(() => {
+      setIsSuccess(true);
+      setCurrentType(getNextTxStep('collateral'));
+    }, 500);
+  };
 
   return (
     <StRoot>
@@ -82,7 +96,12 @@ const Collateral = ({ currentType, setCurrentType }: stageProps) => {
           Done! 🎉
         </RoundButton>
       ) : (
-        <RoundButton width={'80%'} height={'65px'} disabled={currentType !== 'collateral'}>
+        <RoundButton
+          width={'80%'}
+          height={'65px'}
+          disabled={currentType !== 'collateral'}
+          onClick={handleClick}
+        >
           Sign
         </RoundButton>
       )}

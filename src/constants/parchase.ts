@@ -13,7 +13,7 @@ export const PURCHASE_MODAL = {
 
 export const PURCHASE_MODAL_SUBTITLE = {
   TRANSFER: 'Transfer',
-  COLLATERAL: 'Collateral',
+  COLLATERAL: 'Down Payment',
   WRAPPING: 'Wrapping',
 };
 

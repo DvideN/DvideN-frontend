@@ -50,6 +50,16 @@ const Resolved = () => {
   //   await approve(NftMintingAddress, address, 117);
   // };
   const handleSuccess = () => {
+    localStorage.setItem(
+      'selectedItem',
+      JSON.stringify({
+        price: price,
+        downPaymentRate: downPaymentRate,
+        installmentMonth: installmentMonth,
+        imageUrl: query?.imageUrl,
+        name: query?.name,
+      }),
+    );
     router.push('/create/success');
   };
 

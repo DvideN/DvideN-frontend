@@ -213,4 +213,5 @@ const StMainTxt = styled.div<disabledStyleProps>`
   color: ${(props) => (props.isAble ? 'white' : 'rgba(0, 0, 0, 0.25)')};
   left: 50%;
   transform: translateX(-50%);
+  font-weight: 700;
 `;
